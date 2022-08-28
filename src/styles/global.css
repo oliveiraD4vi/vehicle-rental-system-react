@@ -18,3 +18,16 @@ body {
   font-family: 'Roboto', sans-serif;
   color: var(--text-color);
 }
+
+.primary-button {
+  height: 45px !important;
+  padding: 5px 25px !important;
+  color: var(--text-color) !important;
+  font-weight: bold !important;
+  background-color: var(--primary-color) !important;
+  transition: all 200ms ease-in-out !important;
+}
+
+.primary-button:hover {
+  background-color: var(--hover-primary) !important;
+}

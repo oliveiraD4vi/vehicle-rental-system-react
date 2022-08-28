@@ -2,8 +2,28 @@
   padding: 25px 100px;
   box-shadow: var(--box-shadow);
   background-color: var(--white-900);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .header-container > img {
   cursor: pointer;
+}
+
+.header-container > .box-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.header-container > .box-container .navigation-btn {
+  width: 125px !important;
+  padding: 0 !important;
+  word-wrap: normal !important;
+}
+
+.header-container .box-container .navigation-btn > span {
+  font-size: 18px !important;
+  color: var(--text-color) !important;
 }
