@@ -1,0 +1,8 @@
+.layout-container {
+  width: 100%;
+  min-height: 100%;
+}
+
+.layout-container > main {
+  padding: 50px 100px;
+}

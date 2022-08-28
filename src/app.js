@@ -1,9 +1,6 @@
+import Routes from './utils/routes';
 import './styles/global.css';
 
-const App = () => {
-  return (
-    <div className="app">app</div>
-  );
-};
+const App = () => {return <Routes />};
 
 export default App;

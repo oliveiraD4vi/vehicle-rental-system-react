@@ -1,0 +1,7 @@
+.footer-container {
+  padding: 15px 100px;
+  background-color: var(--primary-color);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
