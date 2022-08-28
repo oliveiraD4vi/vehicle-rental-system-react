@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 
 const Layout = lazy(() => import('../screens/Layout/layout'));
+const Home = lazy(() => import('../screens/public/home/home'));
 
 const Routes = () => {
   return (
@@ -17,7 +18,7 @@ const Routes = () => {
             path="/"
             element={
               <Layout>
-                <span>test</span>
+                <Home />
               </Layout>
             }
           />
