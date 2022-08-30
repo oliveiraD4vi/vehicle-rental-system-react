@@ -31,3 +31,9 @@ body {
 .primary-button:hover {
   background-color: var(--hover-primary) !important;
 }
+
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

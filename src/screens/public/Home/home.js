@@ -1,6 +1,10 @@
+import HomeComponent from "../../../components/Home/home";
+
 const Home = () => {
   return (
-    <div className="home-container"></div>
+    <div className="page-container">
+      <HomeComponent />
+    </div>
   );
 };
 
