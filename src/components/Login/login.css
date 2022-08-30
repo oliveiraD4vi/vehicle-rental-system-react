@@ -7,7 +7,7 @@
 .login-container .login-form {
   padding: 25px 45px;
   box-shadow: var(--box-shadow);
-  width: 35%;
+  width: 30%;
   display: grid;
   gap: 20px;
 }

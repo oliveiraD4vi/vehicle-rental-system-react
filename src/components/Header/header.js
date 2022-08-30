@@ -7,13 +7,19 @@ import {
 } from '@mui/material';
 import logo from "../../assets/grancars-primary.svg";
 
+import { auth } from '../../services/utils';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import "./header.css";
+import { useEffect } from 'react';
 
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  useEffect(() => {
+    console.log(auth.isAuthenticated());
+  });
 
   return (
     <div className="header-container">
@@ -60,7 +66,12 @@ const Header = () => {
               }`
             }
             sx={{ margin: '0', padding: '5px 20px' }}
-            control={<Radio sx={{ display: 'none' }} />}
+            control={
+              <Radio
+                disabled={auth.isAuthenticated() ? false : true}
+                sx={{ display: 'none' }}
+              />
+            }
           />
           <FormControlLabel
             value="/about"
@@ -78,20 +89,51 @@ const Header = () => {
       </FormControl>
 
       <div className="action-container">
-        <span
-          style={{ cursor: 'pointer', margin: '0 15px 0 0' }}
-          onClick={() => navigate('/register')}
-        >
-          Sign Up
-        </span>
+        {auth.isAuthenticated() ? (
+          <Button
+            onClick={() => {
+              auth.logout();
+              navigate('/login');
+            }}
+            className="primary-button"
+            variant="container"
+          >
+            SAIR
+          </Button>
+        ) : location.pathname === '/login' ? (
+          <Button
+            onClick={() => navigate('/register')}
+            className="primary-button"
+            variant="container"
+          >
+            CADASTRAR
+          </Button>
+        ) : location.pathname === '/register' ? (
+          <Button
+            onClick={() => navigate('/login')}
+            className="primary-button"
+            variant="container"
+          >
+            ENTRAR
+          </Button>
+        ) : (
+          <>
+            <span
+              style={{ cursor: 'pointer', margin: '0 15px 0 0' }}
+              onClick={() => navigate('/register')}
+            >
+              Cadastrar
+            </span>
 
-        <Button
-          onClick={() => navigate('/login')}
-          className="primary-button"
-          variant="container"
-        >
-          LOGIN
-        </Button>
+            <Button
+              onClick={() => navigate('/login')}
+              className="primary-button"
+              variant="container"
+            >
+              ENTRAR
+            </Button>
+          </>
+        )}
       </div>
     </div>
   );

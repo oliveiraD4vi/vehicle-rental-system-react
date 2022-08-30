@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button, TextField } from '@mui/material';
+import { LoadingButton } from '@mui/lab';
 import { useForm, Controller } from 'react-hook-form';
 
 import { auth } from '../../services/utils';
@@ -32,21 +33,27 @@ const Login = () => {
       
       navigate('/');
     } catch (error) {
+      setLoading(false);
+      setDisabled(false);
       alert('deu errado');
     }
   };
+
+  useEffect(() => {
+    if (auth.isAuthenticated()) navigate('/');
+  }, [navigate]);
 
   return (
     <div className="login-container">
       <form className="login-form">
         <Controller
           name="email"
-          disabled={disabled}
           control={control}
           render={({ field: { onChange, value } }) => (
             <TextField
               label="Email"
               required
+              disabled={disabled}
               variant="standard"
               onChange={onChange}
               value={value}
@@ -56,12 +63,12 @@ const Login = () => {
 
         <Controller
           name="password"
-          disabled={disabled}
           control={control}
           render={({ field: { onChange, value } }) => (
             <TextField
               label="Senha"
               required
+              disabled={disabled}
               variant="standard"
               onChange={onChange}
               value={value}
@@ -69,13 +76,22 @@ const Login = () => {
           )}
         />
 
-        <Button
-          loading={loading}
-          variant="contained"
-          onClick={handleSubmit(onSubmit)}
-        >
-          ENTRAR
-        </Button>
+        {loading ? (
+          <LoadingButton
+            variant="contained"
+            className="primary-button"
+          >
+            ENTRAR
+          </LoadingButton>
+        ) : (
+          <Button
+            variant="contained"
+            className="primary-button"
+            onClick={handleSubmit(onSubmit)}
+          >
+            ENTRAR
+          </Button>
+        )}
       </form>
     </div>
   );
