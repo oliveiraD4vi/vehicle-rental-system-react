@@ -1,0 +1,13 @@
+.login-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.login-container .login-form {
+  padding: 25px 45px;
+  box-shadow: var(--box-shadow);
+  width: 35%;
+  display: grid;
+  gap: 20px;
+}
