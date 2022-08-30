@@ -6,8 +6,9 @@ import {
   Navigate,
 } from 'react-router-dom';
 
-const Layout = lazy(() => import('../screens/Layout/layout'));
-const Home = lazy(() => import('../screens/public/home/home'));
+const Layout = lazy(() => import('./screens/Layout/layout'));
+const Home = lazy(() => import('./screens/public/Home/home'));
+const Login = lazy(() => import('./screens/public/Login/login'));
 
 const Routes = () => {
   return (
@@ -19,6 +20,14 @@ const Routes = () => {
             element={
               <Layout>
                 <Home />
+              </Layout>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <Layout>
+                <Login />
               </Layout>
             }
           />

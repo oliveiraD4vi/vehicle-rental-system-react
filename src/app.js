@@ -1,4 +1,4 @@
-import Routes from './utils/routes';
+import Routes from './routes';
 import './styles/global.css';
 
 const App = () => {return <Routes />};
