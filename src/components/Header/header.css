@@ -11,19 +11,15 @@
   cursor: pointer;
 }
 
-.header-container > .box-container {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-}
-
-.header-container > .box-container .navigation-btn {
-  width: 125px !important;
-  padding: 0 !important;
-  word-wrap: normal !important;
-}
-
-.header-container .box-container .navigation-btn > span {
-  font-size: 18px !important;
+.nav-button.unchecked > span {
   color: var(--text-color) !important;
+  transition: all 100ms ease-in-out !important;
+}
+
+.nav-button.unchecked > span:hover {
+  color: var(--hover-primary) !important;
+}
+
+.nav-button.checked > span {
+  color: var(--primary-color) !important;
 }
