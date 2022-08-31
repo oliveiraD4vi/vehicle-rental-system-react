@@ -20,6 +20,14 @@
   color: var(--hover-primary) !important;
 }
 
+.nav-button.unchecked.disabled > span {
+  color: var(--grey-500) !important;
+}
+
+.nav-button.unchecked.disabled > span:hover {
+  color: var(--grey-500) !important;
+}
+
 .nav-button.checked > span {
   color: var(--primary-color) !important;
 }

@@ -58,7 +58,7 @@ const Header = () => {
               `nav-button ${location.pathname === '/reservation'
                 ? 'checked'
                 : 'unchecked'
-              }`
+              } ${auth.isAuthenticated() ? 'working' : 'disabled'}`
             }
             sx={{ margin: '0', padding: '5px 20px' }}
             control={
