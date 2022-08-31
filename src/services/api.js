@@ -9,7 +9,7 @@ const api = axios.create({
 });
 
 api.interceptors.request.use(async (config) => {
-  const auth = localStorage.getItem('USER');
+  const auth = localStorage.getItem('GCUSER');
   if (auth) {
     const { token } = JSON.parse(auth);
     const tmpConfig = config;
