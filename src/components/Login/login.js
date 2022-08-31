@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
-import { Button, TextField } from '@mui/material';
-import { LoadingButton } from '@mui/lab';
+import { useState, useEffect, useCallback } from 'react';
+import { TextField } from '@mui/material';
 import { useForm, Controller } from 'react-hook-form';
-
+import { useNavigate } from 'react-router-dom';
 import { auth } from '../../services/utils';
+
+import LoadingButton from '@mui/lab/LoadingButton';
 import api from '../../services/api';
 
 import "./login.css";
-import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const { handleSubmit, control } = useForm();
@@ -16,7 +16,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(false);
   
-  const onSubmit = async (data) => {
+  const onSubmit = useCallback( async (data) => {
     const { email, password } = data;
 
     setLoading(true);
@@ -37,7 +37,20 @@ const Login = () => {
       setDisabled(false);
       alert('deu errado');
     }
-  };
+  }, [navigate]);
+
+  // const keyDownEvent = useCallback((event) => {
+  //   if (event.key.toLowerCase() === 'enter') handleSubmit((data) => onSubmit(data));
+  // }, [handleSubmit, onSubmit]);
+
+  // useLayoutEffect(() => {
+  //   const form = document.getElementById('form');
+  //   form.addEventListener('keydown', keyDownEvent);
+
+  //   return () => {
+  //     form.removeEventListener('keydown', keyDownEvent);
+  //   };
+  // });
 
   useEffect(() => {
     if (auth.isAuthenticated()) navigate('/');
@@ -45,7 +58,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <form className="login-form">
+      <form id="form" className="login-form">
         <Controller
           name="email"
           control={control}
@@ -76,22 +89,15 @@ const Login = () => {
           )}
         />
 
-        {loading ? (
-          <LoadingButton
-            variant="contained"
-            className="primary-button"
-          >
-            ENTRAR
-          </LoadingButton>
-        ) : (
-          <Button
-            variant="contained"
-            className="primary-button"
-            onClick={handleSubmit(onSubmit)}
-          >
-            ENTRAR
-          </Button>
-        )}
+        <LoadingButton
+          loading={loading}
+          variant="contained"
+          loadingPosition={'start'}
+          className="primary-button"
+          onClick={handleSubmit(onSubmit)}
+        >
+          ENTRAR
+        </LoadingButton>
       </form>
     </div>
   );

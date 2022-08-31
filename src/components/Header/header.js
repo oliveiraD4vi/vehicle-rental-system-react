@@ -11,15 +11,10 @@ import { auth } from '../../services/utils';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import "./header.css";
-import { useEffect } from 'react';
 
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
-
-  useEffect(() => {
-    console.log(auth.isAuthenticated());
-  });
 
   return (
     <div className="header-container">

@@ -32,6 +32,10 @@ body {
   background-color: var(--hover-primary) !important;
 }
 
+.primary-button.MuiLoadingButton-loading {
+  background-color: var(--grey-300) !important;
+}
+
 .page-container {
   display: flex;
   justify-content: center;
