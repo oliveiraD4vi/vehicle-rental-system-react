@@ -1,16 +1,12 @@
 import { useState, useEffect, useCallback } from 'react';
-import { TextField } from '@mui/material';
-import { useForm, Controller } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../services/utils';
 
-import LoadingButton from '@mui/lab/LoadingButton';
 import api from '../../services/api';
 
 import "./login.css";
 
 const Login = () => {
-  const { handleSubmit, control } = useForm();
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
@@ -58,47 +54,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <form id="form" className="login-form">
-        <Controller
-          name="email"
-          control={control}
-          render={({ field: { onChange, value } }) => (
-            <TextField
-              label="Email"
-              required
-              disabled={disabled}
-              variant="standard"
-              onChange={onChange}
-              value={value}
-            />
-          )}
-        />
-
-        <Controller
-          name="password"
-          control={control}
-          render={({ field: { onChange, value } }) => (
-            <TextField
-              label="Senha"
-              required
-              disabled={disabled}
-              variant="standard"
-              onChange={onChange}
-              value={value}
-            />
-          )}
-        />
-
-        <LoadingButton
-          loading={loading}
-          variant="contained"
-          loadingPosition={'start'}
-          className="primary-button"
-          onClick={handleSubmit(onSubmit)}
-        >
-          ENTRAR
-        </LoadingButton>
-      </form>
+      login
     </div>
   );
 };

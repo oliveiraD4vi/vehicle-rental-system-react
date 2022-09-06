@@ -1,12 +1,6 @@
-import {
-  Radio,
-  RadioGroup,
-  FormControlLabel,
-  FormControl,
-  Button,
-} from '@mui/material';
 import logo from "../../assets/grancars-primary.svg";
 
+import { Button } from 'antd';
 import { auth } from '../../services/utils';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -20,68 +14,12 @@ const Header = () => {
     <div className="header-container">
       <img src={logo} alt="brand logo" onClick={() => navigate('/')} />
 
-      <FormControl>
-        <RadioGroup
-          row
-          name="navigation"
-          aria-labelledby="navigation"
-          onChange={(e, value) => navigate(value)}
-        >
-          <FormControlLabel
-            value="/"
-            label="HOME"
-            className={
-              `nav-button ${location.pathname === '/'
-                ? 'checked'
-                : 'unchecked'
-              }`
-            }
-            sx={{ margin: '0', padding: '5px 20px' }}
-            control={<Radio sx={{ display: 'none' }} />}
-          />
-          <FormControlLabel
-            value="/cars"
-            label="CARROS"
-            className={
-              `nav-button ${location.pathname === '/cars'
-                ? 'checked'
-                : 'unchecked'
-              }`
-            }
-            sx={{ margin: '0', padding: '5px 20px' }}
-            control={<Radio sx={{ display: 'none' }} />}
-          />
-          <FormControlLabel
-            value="/reservation"
-            label="RESERVAS"
-            className={
-              `nav-button ${location.pathname === '/reservation'
-                ? 'checked'
-                : 'unchecked'
-              } ${auth.isAuthenticated() ? 'working' : 'disabled'}`
-            }
-            sx={{ margin: '0', padding: '5px 20px' }}
-            control={
-              <Radio
-                disabled={auth.isAuthenticated() ? false : true}
-                sx={{ display: 'none' }}
-              />
-            }
-          />
-          <FormControlLabel
-            value="/about"
-            label="SOBRE NÓS"
-            className={
-              `nav-button ${location.pathname === '/about'
-                ? 'checked'
-                : 'unchecked'
-              }`
-            }
-            sx={{ margin: '0', padding: '5px 20px' }}
-            control={<Radio sx={{ display: 'none' }} />}
-          />
-        </RadioGroup>
-      </FormControl>
+      <ul>
+        <li onClick={() => navigate('/')}>HOME</li>
+        <li onClick={() => navigate('/cars')}>CARROS</li>
+        <li onClick={() => navigate('/reservations')}>RESERVAS</li>
+        <li onClick={() => navigate('/about')}>SOBRE NÓS</li>
+      </ul>
 
       <div className="action-container">
         {auth.isAuthenticated() ? (
@@ -91,7 +29,6 @@ const Header = () => {
               navigate('/login');
             }}
             className="primary-button"
-            variant="container"
           >
             SAIR
           </Button>
@@ -99,7 +36,6 @@ const Header = () => {
           <Button
             onClick={() => navigate('/register')}
             className="primary-button"
-            variant="container"
           >
             CADASTRAR
           </Button>
@@ -107,7 +43,6 @@ const Header = () => {
           <Button
             onClick={() => navigate('/login')}
             className="primary-button"
-            variant="container"
           >
             ENTRAR
           </Button>
@@ -123,7 +58,6 @@ const Header = () => {
             <Button
               onClick={() => navigate('/login')}
               className="primary-button"
-              variant="container"
             >
               ENTRAR
             </Button>

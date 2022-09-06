@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Grid, Box } from '@mui/material';
 
 import WhiteCar from '../../assets/car-example-white.png';
 
@@ -35,15 +34,9 @@ const Cars = () => {
     <span>Carregando...</span>
   ) : (
     <div className="cars-container">
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
-          {data && data.map((item) => (
-            <Grid xs={4}>
-              <Car key={item.plate} data={item} img={WhiteCar} />
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
+      {data && data.map((item) => (
+        <Car key={item.plate} data={item} img={WhiteCar} />
+      ))}
     </div>
   );
 }
