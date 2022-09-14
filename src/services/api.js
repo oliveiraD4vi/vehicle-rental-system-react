@@ -1,15 +1,15 @@
-import axios from 'axios';
+import axios from "axios";
 
 const api = axios.create({
-  baseURL: 'http://localhost:3333',
+  baseURL: "http://localhost:3333",
   headers: {
-    Accept: '*/*',
-    'Content-Type': 'application/json',
+    Accept: "*/*",
+    "Content-Type": "application/json",
   },
 });
 
 api.interceptors.request.use(async (config) => {
-  const auth = localStorage.getItem('GCUSER');
+  const auth = localStorage.getItem("GCUSER");
   if (auth) {
     const { token } = JSON.parse(auth);
     const tmpConfig = config;

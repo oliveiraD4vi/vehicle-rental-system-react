@@ -6,6 +6,6 @@ const Cars = () => {
       <CarsComponent />
     </div>
   );
-}
+};
 
 export default Cars;

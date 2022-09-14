@@ -1,5 +1,7 @@
-import Routes from './routes';
-import './styles/global.css';
+import Routes from "./routes";
+import "./styles/global.css";
 
-const App = () => {return <Routes />};
+const App = () => {
+  return <Routes />;
+};
 export default App;

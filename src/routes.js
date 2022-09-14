@@ -4,14 +4,14 @@ import {
   Routes as RouteWrapper,
   BrowserRouter,
   Navigate,
-} from 'react-router-dom';
+} from "react-router-dom";
 
-const Layout = lazy(() => import('./screens/Layout/layout'));
-const Home = lazy(() => import('./screens/public/Home/home'));
-const Login = lazy(() => import('./screens/public/Login/login'));
-const Cars = lazy(() => import('./screens/public/Cars/cars'));
-const Register = lazy(() => import('./screens/public/Register/register'));
-const About = lazy(() => import('./screens/public/About/about'));
+const Layout = lazy(() => import("./screens/Layout/layout"));
+const Home = lazy(() => import("./screens/public/Home/home"));
+const Login = lazy(() => import("./screens/public/Login/login"));
+const Cars = lazy(() => import("./screens/public/Cars/cars"));
+const Register = lazy(() => import("./screens/public/Register/register"));
+const About = lazy(() => import("./screens/public/About/about"));
 
 const Routes = () => {
   return (

@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import WhiteCar from '../../assets/car-example-white.png';
+import WhiteCar from "../../assets/car-example-white.png";
 
-import api from '../../services/api';
-import Car from './Car/car';
+import api from "../../services/api";
+import Car from "./Car/car";
 
 import "./cars.css";
 
@@ -16,7 +16,7 @@ const Cars = () => {
       setLoading(true);
 
       try {
-        const response = await api.get('/cars');
+        const response = await api.get("/cars");
 
         const { data } = response;
         setData(data.cars);
@@ -34,11 +34,10 @@ const Cars = () => {
     <span>Carregando...</span>
   ) : (
     <div className="cars-container">
-      {data && data.map((item) => (
-        <Car key={item.plate} data={item} img={WhiteCar} />
-      ))}
+      {data &&
+        data.map((item) => <Car key={item.plate} data={item} img={WhiteCar} />)}
     </div>
   );
-}
+};
 
 export default Cars;

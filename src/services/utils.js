@@ -1,4 +1,4 @@
-const AUTH = 'GCUSER';
+const AUTH = "GCUSER";
 
 export const auth = {
   login(authData) {
