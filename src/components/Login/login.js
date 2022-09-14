@@ -20,7 +20,7 @@ const Login = () => {
       setDisabled(true);
 
       try {
-        const response = await api.post("/login", {
+        const response = await api.post("/user/login", {
           email,
           password,
         });

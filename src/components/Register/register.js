@@ -19,7 +19,7 @@ const Register = () => {
     setDisabled(true);
 
     try {
-      await api.post("/register", {
+      await api.post("/user/register", {
         name,
         email,
         password,
