@@ -1,3 +1,4 @@
+import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 
 import logo from "../../assets/grancars-secondary.svg";
@@ -9,7 +10,9 @@ const Footer = () => {
 
   return (
     <div className="footer-container">
-      <img src={logo} alt="brand logo" onClick={() => navigate("/")} />
+      <Button className="link-button" onClick={() => navigate("/")}>
+        <img src={logo} alt="brand logo" />
+      </Button>
     </div>
   );
 };

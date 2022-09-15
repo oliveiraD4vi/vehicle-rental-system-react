@@ -12,13 +12,52 @@ const Header = () => {
 
   return (
     <div className="header-container">
-      <img src={logo} alt="brand logo" onClick={() => navigate("/")} />
+      <Button className="link-button" onClick={() => navigate("/")}>
+        <img src={logo} alt="brand logo" />
+      </Button>
 
-      <ul>
-        <li onClick={() => navigate("/")}>HOME</li>
-        <li onClick={() => navigate("/cars")}>CARROS</li>
-        <li onClick={() => navigate("/reservations")}>RESERVAS</li>
-        <li onClick={() => navigate("/about")}>SOBRE NÓS</li>
+      <ul className="navigation-container">
+        <li className="navigation-item">
+          <Button
+            onClick={() => navigate("/")}
+            className={`navigation-btn ${
+              location.pathname === "/" ? "checked" : "unchecked"
+            }`}
+          >
+            HOME
+          </Button>
+        </li>
+        <li className="navigation-item">
+          <Button
+            onClick={() => navigate("/cars")}
+            className={`navigation-btn ${
+              location.pathname === "/cars" ? "checked" : "unchecked"
+            }`}
+          >
+            CARROS
+          </Button>
+        </li>
+        <li className="navigation-item">
+          <Button
+            disabled={auth.isAuthenticated() ? false : true}
+            onClick={() => navigate("/reservations")}
+            className={`navigation-btn ${
+              location.pathname === "/reservations" ? "checked" : "unchecked"
+            }`}
+          >
+            RESERVAS
+          </Button>
+        </li>
+        <li className="navigation-item">
+          <Button
+            onClick={() => navigate("/about")}
+            className={`navigation-btn ${
+              location.pathname === "/about" ? "checked" : "unchecked"
+            }`}
+          >
+            SOBRE NÓS
+          </Button>
+        </li>
       </ul>
 
       <div className="action-container">
@@ -45,12 +84,12 @@ const Header = () => {
           </Button>
         ) : (
           <>
-            <span
-              style={{ cursor: "pointer", margin: "0 15px 0 0" }}
+            <Button
               onClick={() => navigate("/register")}
+              className="link-button"
             >
               Cadastrar
-            </span>
+            </Button>
 
             <Button
               onClick={() => navigate("/login")}

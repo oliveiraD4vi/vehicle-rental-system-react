@@ -8,8 +8,6 @@
 
 html, body {
   min-height: 100%;
-  /* temp */
-  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -25,24 +23,42 @@ body {
 }
 
 .primary-button {
-  height: 45px !important;
-  padding: 5px 25px !important;
-  color: var(--text-color) !important;
-  font-weight: bold !important;
-  background-color: var(--primary-color) !important;
-  transition: all 200ms ease-in-out !important;
+  border: none;
+  height: 45px;
+  padding: 5px 25px;
+  font-weight: bold;
+  color: var(--text-color);
+  background-color: var(--primary-color);
+  transition: all 200ms ease-in-out;
 }
 
+.primary-button:focus,
 .primary-button:hover {
-  background-color: var(--hover-primary) !important;
+  border: none;
+  color: var(--text-color);
+  background-color: var(--hover-primary);
 }
 
-.primary-button.MuiLoadingButton-loading {
-  background-color: var(--grey-300) !important;
+.link-button {
+  border: none;
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+.link-button:focus,
+.link-button:hover {
+  border: none;
+  background-color: transparent;
+  color: var(--hover-primary);
 }
 
 .page-container {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+[ant-click-animating-without-extra-node='true']::after,
+.ant-click-animating-node {
+  box-shadow: none !important;
 }

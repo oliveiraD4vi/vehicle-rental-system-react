@@ -16,7 +16,7 @@ const Cars = () => {
       setLoading(true);
 
       try {
-        const response = await api.get("/cars/list");
+        const response = await api.get("/vehicle/list");
 
         const { data } = response;
         setData(data.cars);
