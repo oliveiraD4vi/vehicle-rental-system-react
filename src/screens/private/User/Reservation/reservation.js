@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const Reservation = () => {
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     if (!auth.isAuthenticated()) {
       navigate("/");

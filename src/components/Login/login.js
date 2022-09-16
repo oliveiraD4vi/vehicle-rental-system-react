@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../services/utils";
+import { Form, Input, Button } from "antd";
 
 import api from "../../services/api";
 
@@ -8,6 +9,8 @@ import "./login.css";
 
 const Login = () => {
   const navigate = useNavigate();
+
+  const [form] = Form.useForm();
 
   const [loading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(false);
@@ -38,24 +41,54 @@ const Login = () => {
     [navigate]
   );
 
-  // const keyDownEvent = useCallback((event) => {
-  //   if (event.key.toLowerCase() === 'enter') handleSubmit((data) => onSubmit(data));
-  // }, [handleSubmit, onSubmit]);
-
-  // useLayoutEffect(() => {
-  //   const form = document.getElementById('form');
-  //   form.addEventListener('keydown', keyDownEvent);
-
-  //   return () => {
-  //     form.removeEventListener('keydown', keyDownEvent);
-  //   };
-  // });
-
   useEffect(() => {
     if (auth.isAuthenticated()) navigate("/");
   }, [navigate]);
 
-  return <div className="login-container">login</div>;
+  return (
+    <div className="login-container">
+      <Form form={form} className="login-form" onFinish={onSubmit}>
+        <Form.Item
+          name="email"
+          rules={[
+            {
+              required: true,
+              message: "Por favor, insira seu email",
+            },
+          ]}
+        >
+          <Input disabled={disabled} placeholder="Email" />
+        </Form.Item>
+
+        <Form.Item
+          name="password"
+          rules={[
+            {
+              required: true,
+              message: "Por favor, insira sua senha ",
+            },
+            {
+              min: 8,
+              message: "Essa não é uma senha válida",
+            },
+          ]}
+        >
+          <Input.Password disabled={disabled} placeholder="Senha" />
+        </Form.Item>
+
+        <Form.Item className="btn">
+          <Button
+            loading={loading}
+            type="primary"
+            htmlType="submit"
+            className="primary-button"
+          >
+            ENTRAR
+          </Button>
+        </Form.Item>
+      </Form>
+    </div>
+  );
 };
 
 export default Login;

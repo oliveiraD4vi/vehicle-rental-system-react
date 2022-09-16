@@ -12,7 +12,9 @@ const Login = lazy(() => import("./screens/public/Login/login"));
 const Cars = lazy(() => import("./screens/public/Cars/cars"));
 const Register = lazy(() => import("./screens/public/Register/register"));
 const About = lazy(() => import("./screens/public/About/about"));
-const Reservations = lazy(() => import("./screens/private/User/Reservation/reservation"));
+const Reservations = lazy(() =>
+  import("./screens/private/User/Reservation/reservation")
+);
 
 const Routes = () => {
   return (

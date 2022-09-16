@@ -58,6 +58,35 @@ body {
   align-items: center;
 }
 
+.ant-form-item {
+  margin: 0;
+}
+
+.ant-picker {
+  width: 100%;
+}
+
+.ant-input,
+.ant-picker,
+.ant-form-item .ant-input-affix-wrapper {
+  border: none;
+  border-bottom: 1px solid var(--grey-500);
+  box-shadow: none !important;
+}
+
+.ant-form-item:last-child {
+  border: none;
+}
+
+.ant-picker:hover,
+.ant-picker:focus,
+.ant-form-item .ant-input-affix-wrapper:hover,
+.ant-form-item .ant-input-affix-wrapper:focus,
+.ant-input:hover,
+.ant-input:focus {
+  border-color: var(--grey-500) !important;
+}
+
 [ant-click-animating-without-extra-node='true']::after,
 .ant-click-animating-node {
   box-shadow: none !important;

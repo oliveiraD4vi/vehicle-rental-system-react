@@ -9,5 +9,5 @@
   box-shadow: var(--box-shadow);
   width: 30%;
   display: grid;
-  gap: 20px;
+  gap: 15px;
 }
