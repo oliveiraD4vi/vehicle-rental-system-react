@@ -67,7 +67,7 @@ const Register = () => {
             },
           ]}
         >
-          <Input disabled={disabled} placeholder="Name" />
+          <Input disabled={disabled} placeholder="Nome" />
         </Form.Item>
 
         <Form.Item
@@ -99,7 +99,7 @@ const Register = () => {
             },
           ]}
         >
-          <Input disabled={disabled} placeholder="User CPF" />
+          <Input disabled={disabled} placeholder="CPF" />
         </Form.Item>
 
         <Form.Item

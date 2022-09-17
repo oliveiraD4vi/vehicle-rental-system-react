@@ -7,11 +7,11 @@
   display: flex;
 }
 
-.car-container .name {
+.car-container .content {
   width: 100%;
 }
 
-.car-container .name > #value {
+.car-container .content > #value {
   color: var(--white-900);
   background-color: var(--hover-secondary);
   padding: 5px 10px;
@@ -26,4 +26,23 @@
 
 .car-container .image-container > img {
   height: 80%;
+}
+
+.offer-tooltip button,
+.offer-button {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  border: none;
+  font-size: 24px;
+  padding: 25px 30px;
+  background-color: var(--primary-color);
+}
+
+.offer-button button:focus,
+.offer-button button:hover,
+.offer-button:focus,
+.offer-button:hover {
+  color: var(--text-color);
+  background-color: var(--hover-primary);
 }
