@@ -4,6 +4,7 @@ import { auth } from "../../services/utils";
 import { Form, Input, Button } from "antd";
 
 import api from "../../services/api";
+import notification from "../../services/notification";
 
 import "./login.css";
 
@@ -35,7 +36,10 @@ const Login = () => {
       } catch (error) {
         setLoading(false);
         setDisabled(false);
-        alert("deu errado");
+        
+        const { data } = error.response;
+
+        notification("error", data.message);
       }
     },
     [navigate]

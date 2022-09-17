@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import notification from "../../services/notification";
 
 import WhiteCar from "../../assets/car-example-white.png";
 
@@ -22,7 +23,9 @@ const Cars = () => {
         setData(data.cars);
         setLoading(false);
       } catch (error) {
-        // alert('deu errado');
+        const { data } = error.response;
+
+        notification("error", data.message);
         fetchData();
       }
     }

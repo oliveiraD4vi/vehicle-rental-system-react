@@ -18,7 +18,8 @@ const Layout = ({ children }) => {
         try {
           await api.get("/user/check");
         } catch (error) {
-          notification("error", "Login expirado");
+          notification("error", "Sessão expirada");
+
           auth.logout();
           navigate("/");
         }
