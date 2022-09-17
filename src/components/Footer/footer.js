@@ -10,7 +10,11 @@ const Footer = () => {
 
   return (
     <div className="footer-container">
-      <Button className="link-button" onClick={() => navigate("/")}>
+      <Button
+        className="link-button"
+        style={{ padding: "0" }}
+        onClick={() => navigate("/")}
+      >
         <img src={logo} alt="brand logo" />
       </Button>
     </div>

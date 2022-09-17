@@ -36,7 +36,7 @@ const Login = () => {
       } catch (error) {
         setLoading(false);
         setDisabled(false);
-        
+
         const { data } = error.response;
 
         notification("error", data.message);
