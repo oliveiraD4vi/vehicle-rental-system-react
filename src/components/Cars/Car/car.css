@@ -1,16 +1,14 @@
 .car-container {
   color: var(--text-color);
-  box-shadow: var(--box-shadow);
   background-color: var(--grey-300);
   padding: 25px;
   margin: 10px;
+  height: 250px;
+  display: flex;
 }
 
 .car-container .name {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .car-container .name > #value {
@@ -20,6 +18,12 @@
   border-radius: 5px;
 }
 
-.car-container > img {
-  width: 80%;
+.car-container .image-container {
+  display: flex;
+  align-items: center;
+  padding: 0 25px;
+}
+
+.car-container .image-container > img {
+  height: 80%;
 }
