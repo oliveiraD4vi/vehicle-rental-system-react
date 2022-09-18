@@ -90,7 +90,7 @@ const Cars = () => {
         />
       </div>
 
-      <div className="pagination-container">  
+      <div className="pagination-container">
         {pagination && (
           <Pagination
             locale={{ items_per_page: ` /  página` }}
@@ -107,10 +107,7 @@ const Cars = () => {
         <div className="sorter">
           <span>Ordem:</span>
 
-          <Select
-            defaultValue="ASC"
-            onChange={onChangeSelect}
-          >
+          <Select defaultValue="ASC" onChange={onChangeSelect}>
             <Option value="ASC">Crescente</Option>
             <Option value="DESC">Decrescente</Option>
           </Select>

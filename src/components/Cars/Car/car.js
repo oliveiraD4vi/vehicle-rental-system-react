@@ -15,31 +15,40 @@ const Car = ({ data, img }) => {
       </div>
 
       <div className="content">
-        <h3>
-          {data.brand} {data.model}
-        </h3>
-        <h3 id="value">R$ {data.value},00</h3>
+        <div className="title">
+          <h1>
+            {data.brand} {data.model}
+          </h1>
+          <h1 id="value">R$ {data.value},00</h1>
+        </div>
 
-        {auth.isAuthenticated() ? (
-          <Button
-            className="offer-button"
-            onClick={() =>
-              navigate("/reservations", {
-                state: {
-                  data: data,
-                },
-              })
-            }
-          >
-            OFERTA <ArrowRightOutlined />
-          </Button>
-        ) : (
-          <Tooltip title="Faça login para alugar um carro" placement="bottom">
-            <Button className="offer-tooltip" disabled={true}>
+        <div
+          className="color-box"
+          style={{ backgroundColor: data.color }}
+        ></div>
+
+        <div className="button">
+          {auth.isAuthenticated() ? (
+            <Button
+              className="offer-button"
+              onClick={() =>
+                navigate("/reservations", {
+                  state: {
+                    data: data,
+                  },
+                })
+              }
+            >
               OFERTA <ArrowRightOutlined />
             </Button>
-          </Tooltip>
-        )}
+          ) : (
+            <Tooltip title="Faça login para alugar um carro" placement="bottom">
+              <Button className="offer-tooltip" disabled={true}>
+                OFERTA <ArrowRightOutlined />
+              </Button>
+            </Tooltip>
+          )}
+        </div>
       </div>
     </div>
   );
