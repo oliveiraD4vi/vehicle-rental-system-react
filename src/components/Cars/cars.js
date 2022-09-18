@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Input } from "antd";
+import { Input, Pagination, Select } from "antd";
 
 import notification from "../../services/notification";
 import WhiteCar from "../../assets/car-example-white.png";
@@ -11,30 +11,44 @@ import "./cars.css";
 const Cars = () => {
   const [data, setData] = useState();
   const [loading, setLoading] = useState();
+  const [disabled, setDisabled] = useState();
   const [searchValue, setSearchValue] = useState(null);
+  const [pagination, setPagination] = useState();
+  const [totalCount, setTotalCount] = useState();
 
   const { Search } = Input;
+  const { Option } = Select;
 
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
+      setDisabled(true);
 
-      try {
-        const response = await api.get("/vehicle/list");
-
-        const { data } = response;
-        setData(data.cars);
-        setLoading(false);
-      } catch (error) {
-        const { data } = error.response;
-
-        notification("error", data.message);
-        fetchData();
-      }
+      setPagination({ page: 1, size: 5, sort: "ASC" });
+      getData(1, 5, "ASC");
     }
 
     fetchData();
   }, []);
+
+  const getData = async (page, size, sort) => {
+    try {
+      const response = await api.get(
+        `/vehicle/list?page=${page}&size=${size}&sort=${sort}`
+      );
+
+      const { data } = response;
+      setData(data.cars);
+      setTotalCount(data.totalCount);
+
+      setLoading(false);
+      setDisabled(false);
+    } catch (error) {
+      const { data } = error.response;
+
+      notification("error", data.message);
+    }
+  };
 
   const handleSearch = (e) => {
     setSearchValue(e.target.value);
@@ -52,6 +66,16 @@ const Cars = () => {
     }
   };
 
+  const onChangeSelect = (sort) => {
+    setPagination({ ...pagination, sort });
+    getData(pagination.page, pagination.size, sort);
+  };
+
+  const onChangePagination = (page, size) => {
+    setPagination({ ...pagination, page, size });
+    getData(page, size, pagination.sort);
+  };
+
   return loading ? (
     <span>Carregando...</span>
   ) : (
@@ -66,11 +90,36 @@ const Cars = () => {
         />
       </div>
 
+      <div className="sort-container">
+        <span>Ordem:</span>
+
+        <Select
+          defaultValue="ASC"
+          onChange={onChangeSelect}
+        >
+          <Option value="ASC">Crescente</Option>
+          <Option value="DESC">Decrescente</Option>
+        </Select>
+      </div>
+
       <div className="container-listing">
         {data &&
           data
             .filter(filterSearch)
             .map((item) => <Car key={item.plate} data={item} img={WhiteCar} />)}
+
+        {pagination && (
+          <Pagination
+            locale={{ items_per_page: ` /  página` }}
+            showSizeChanger
+            current={pagination.page}
+            defaultPageSize={pagination.size}
+            total={totalCount}
+            onChange={onChangePagination}
+            disabled={disabled}
+            pageSizeOptions={["5", "10", "15", "20", "30"]}
+          />
+        )}
       </div>
     </div>
   );
