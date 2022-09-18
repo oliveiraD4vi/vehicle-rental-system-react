@@ -25,7 +25,7 @@ const Car = ({ data, img }) => {
         <div
           className="color-box"
           style={{ backgroundColor: data.color }}
-        ></div>
+        />
 
         <div className="button">
           {auth.isAuthenticated() ? (
