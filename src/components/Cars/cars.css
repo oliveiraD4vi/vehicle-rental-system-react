@@ -1,20 +1,30 @@
 .cars-container {
   display: grid;
   width: 100%;
-  gap: 10px;
+  gap: 20px;
 }
 
-.cars-container .sort-container {
+.cars-container .ant-pagination-item-link:hover,
+.cars-container .ant-pagination-item:hover,
+.cars-container .ant-pagination-item a:hover,
+.cars-container .ant-pagination-item-active,
+.cars-container .ant-pagination-item-active a {
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.cars-container .pagination-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
-.cars-container .sort-container span {
+.cars-container .pagination-container span {
   margin-bottom: 2px;
 }
 
-.cars-container .sort-container .ant-select-selector {
+.cars-container .container-listing .ant-select-selector,
+.cars-container .pagination-container .ant-select-selector {
   border: none;
   box-shadow: none !important;
 }

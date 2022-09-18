@@ -90,16 +90,31 @@ const Cars = () => {
         />
       </div>
 
-      <div className="sort-container">
-        <span>Ordem:</span>
+      <div className="pagination-container">  
+        {pagination && (
+          <Pagination
+            locale={{ items_per_page: ` /  página` }}
+            showSizeChanger
+            current={pagination.page}
+            defaultPageSize={pagination.size}
+            total={totalCount}
+            onChange={onChangePagination}
+            disabled={disabled}
+            pageSizeOptions={["5", "10", "15", "20", "30"]}
+          />
+        )}
 
-        <Select
-          defaultValue="ASC"
-          onChange={onChangeSelect}
-        >
-          <Option value="ASC">Crescente</Option>
-          <Option value="DESC">Decrescente</Option>
-        </Select>
+        <div className="sorter">
+          <span>Ordem:</span>
+
+          <Select
+            defaultValue="ASC"
+            onChange={onChangeSelect}
+          >
+            <Option value="ASC">Crescente</Option>
+            <Option value="DESC">Decrescente</Option>
+          </Select>
+        </div>
       </div>
 
       <div className="container-listing">
