@@ -15,7 +15,7 @@
   padding: 15px 25px;
 }
 
-.car-container .content .title {
+.car-container .content .car-title {
   display: flex;
   justify-content: space-between;
 }
@@ -27,7 +27,7 @@
 }
 
 .car-container .image-container > img {
-  height: 80%;
+  width: 80%;
 }
 
 .offer-tooltip button,

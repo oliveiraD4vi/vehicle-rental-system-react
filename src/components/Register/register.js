@@ -123,11 +123,11 @@ const Register = () => {
           rules={[
             {
               required: true,
-              message: "Insira sua data de aniversário",
+              message: "Insira sua data de nascimento",
             },
           ]}
         >
-          <DatePicker disabled={disabled} format={dateFormat} />
+          <DatePicker placeholder="Data de nascimento" disabled={disabled} format={dateFormat} />
         </Form.Item>
 
         <Form.Item className="btn">

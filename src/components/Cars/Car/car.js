@@ -15,14 +15,14 @@ const Car = ({ data, img }) => {
       </div>
 
       <div className="content">
-        <div className="title">
+        <div className="car-title">
           <h1>
             {data.brand} {data.model}
           </h1>
           <h1 id="value">R$ {data.value},00</h1>
         </div>
 
-        <div className="color-box" style={{ backgroundColor: data.color }} />
+        {/* <div className="color-box" style={{ backgroundColor: data.color }} /> */}
 
         <div className="button">
           {auth.isAuthenticated() ? (

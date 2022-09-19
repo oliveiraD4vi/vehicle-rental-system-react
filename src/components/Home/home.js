@@ -1,5 +1,10 @@
-import { ArrowRightOutlined } from "@ant-design/icons";
-import { Button, Carousel, notification } from "antd";
+import {
+  ArrowRightOutlined,
+  CheckCircleOutlined,
+  FileTextOutlined,
+  SearchOutlined,
+} from "@ant-design/icons";
+import { Button, Card, Carousel, notification } from "antd";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -58,7 +63,11 @@ const Home = () => {
                       },
                     })
                   }
-                  style={{ marginTop: "15px", height: "auto", padding: "5px 10px" }}
+                  style={{
+                    marginTop: "15px",
+                    height: "auto",
+                    padding: "5px 10px",
+                  }}
                   className="primary-button"
                 >
                   OFERTA <ArrowRightOutlined />
@@ -68,6 +77,86 @@ const Home = () => {
           </Carousel>
         </div>
       )}
+
+      <div className="cards-container">
+        <h1 className="title">
+          como fazer uma
+          <span> R</span>
+          eserva
+        </h1>
+
+        <div className="cards">
+          <div className="card">
+            <div className="card-icon">
+              <SearchOutlined />
+            </div>
+            <Card>
+              <div className="content">
+                <h3>procure um carro</h3>
+                <p>
+                  temos uma grande gama de carros que você pode escolher,
+                  verifique nossa lista!
+                </p>
+              </div>
+
+              <Button
+                className="primary-button"
+                onClick={() => navigate("/cars")}
+                style={{ height: "auto", padding: "5px 10px" }}
+              >
+                COMEÇAR <ArrowRightOutlined />
+              </Button>
+            </Card>
+          </div>
+        
+          <div className="card">
+            <div className="card-icon">
+              <FileTextOutlined />
+            </div>
+
+            <Card>
+              <div className="content">
+                <h3>preencha o form</h3>
+                <p>
+                  só precisamos saber algumas coisas sobre a reserva e sobre você, o
+                  cliente
+                </p>
+              </div>
+
+              <Button
+                className="primary-button"
+                onClick={() => navigate("/cars")}
+                style={{ height: "auto", padding: "5px 10px" }}
+                >
+                COMEÇAR <ArrowRightOutlined />
+              </Button>
+            </Card>
+          </div>
+        
+          <div className="card">
+            <div className="card-icon">
+              <CheckCircleOutlined />
+            </div>
+            <Card>
+              <div className="content">
+                <h3>retire o carro</h3>
+                <p>
+                  ao realizar o pagamento você receberá um comprovante para retirar
+                  o carro!
+                </p>
+              </div>
+
+              <Button
+                className="primary-button"
+                onClick={() => navigate("/cars")}
+                style={{ height: "auto", padding: "5px 10px" }}
+              >
+                COMEÇAR <ArrowRightOutlined />
+              </Button>
+            </Card>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
