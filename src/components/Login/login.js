@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { auth } from "../../services/utils";
 import { Form, Input, Button } from "antd";
 
@@ -10,6 +10,7 @@ import "./login.css";
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [form] = Form.useForm();
 
@@ -32,7 +33,9 @@ const Login = () => {
         const { data } = response;
         auth.login(data.authData);
 
-        navigate("/");
+        navigate("/", {
+          state: location.state,
+        });
       } catch (error) {
         setLoading(false);
         setDisabled(false);

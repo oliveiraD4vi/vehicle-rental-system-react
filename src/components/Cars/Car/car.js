@@ -1,6 +1,6 @@
 import { ArrowRightOutlined } from "@ant-design/icons";
 import { auth } from "../../../services/utils";
-import { Button, Tooltip } from "antd";
+import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 
 import "./car.css";
@@ -21,31 +21,26 @@ const Car = ({ data, img }) => {
           </h1>
           <h1 id="value">R$ {data.value},00</h1>
         </div>
-
-        {/* <div className="color-box" style={{ backgroundColor: data.color }} /> */}
-
-        <div className="button">
-          {auth.isAuthenticated() ? (
-            <Button
-              className="offer-button"
-              onClick={() =>
-                navigate("/reservations", {
-                  state: {
-                    data: data,
-                  },
-                })
-              }
-            >
-              OFERTA <ArrowRightOutlined />
-            </Button>
-          ) : (
-            <Tooltip title="Faça login para alugar um carro" placement="bottom">
-              <Button className="offer-tooltip" disabled={true}>
-                OFERTA <ArrowRightOutlined />
-              </Button>
-            </Tooltip>
-          )}
-        </div>
+        <Button
+          className="offer-button"
+          onClick={() => {
+            if (!auth.isAuthenticated()) {
+              navigate("/login", {
+                state: {
+                  data: data,
+                },
+              });
+            } else {
+              navigate("/reservations", {
+                state: {
+                  data: data,
+                },
+              });
+            }
+          }}
+        >
+          OFERTA <ArrowRightOutlined />
+        </Button>
       </div>
     </div>
   );

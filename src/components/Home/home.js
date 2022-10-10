@@ -6,7 +6,7 @@ import {
 } from "@ant-design/icons";
 import { Button, Card, Carousel, notification } from "antd";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import Image from "../../assets/car-example-green.png";
 import api from "../../services/api";
@@ -17,6 +17,15 @@ const Home = () => {
   const [vehicleList, setVehicleList] = useState();
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state && location.state.data) {
+      navigate("/reservations", {
+        state: location.state,
+      });
+    }
+  }, []);
 
   useEffect(() => {
     async function fetchData() {
@@ -108,7 +117,7 @@ const Home = () => {
               </Button>
             </Card>
           </div>
-        
+
           <div className="card">
             <div className="card-icon">
               <FileTextOutlined />
@@ -118,8 +127,8 @@ const Home = () => {
               <div className="content">
                 <h3>preencha o form</h3>
                 <p>
-                  só precisamos saber algumas coisas sobre a reserva e sobre você, o
-                  cliente
+                  só precisamos saber algumas coisas sobre a reserva e sobre
+                  você, o cliente
                 </p>
               </div>
 
@@ -127,12 +136,12 @@ const Home = () => {
                 className="primary-button"
                 onClick={() => navigate("/cars")}
                 style={{ height: "auto", padding: "5px 10px" }}
-                >
+              >
                 COMEÇAR <ArrowRightOutlined />
               </Button>
             </Card>
           </div>
-        
+
           <div className="card">
             <div className="card-icon">
               <CheckCircleOutlined />
@@ -141,8 +150,8 @@ const Home = () => {
               <div className="content">
                 <h3>retire o carro</h3>
                 <p>
-                  ao realizar o pagamento você receberá um comprovante para retirar
-                  o carro!
+                  ao realizar o pagamento você receberá um comprovante para
+                  retirar o carro!
                 </p>
               </div>
 

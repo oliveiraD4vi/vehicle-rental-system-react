@@ -65,6 +65,10 @@
   gap: 20px;
 }
 
+.home-container .cards-container .cards .card .ant-card-body {
+  box-shadow: var(--box-shadow);
+}
+
 .home-container .cards-container .cards .card,
 .home-container .cards-container .cards .card .ant-card-body {
   display: flex;
