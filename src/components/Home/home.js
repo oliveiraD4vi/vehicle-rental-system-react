@@ -10,6 +10,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import Image from "../../assets/car-example-green.png";
 import api from "../../services/api";
+import DateSelector from "../DateSelector/dateSelector";
 
 import "./home.css";
 
@@ -46,6 +47,10 @@ const Home = () => {
 
   return (
     <div className="home-container">
+      <div className="date-selector-container">
+        <DateSelector />
+      </div>
+
       {vehicleList && (
         <div className="carrousel-container">
           <h1 className="title">

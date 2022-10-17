@@ -48,6 +48,23 @@ body {
   background-color: var(--hover-primary);
 }
 
+.secondary-button {
+  border: none;
+  height: 45px;
+  padding: 5px 25px;
+  font-weight: bold;
+  color: var(--primary-color);
+  background-color: var(--white-900);
+  transition: all 200ms ease-in-out;
+}
+
+.secondary-button:focus,
+.secondary-button:hover {
+  border: none;
+  color: var(--primary-color);
+  background-color: var(--grey-300);
+}
+
 .link-button {
   border: none;
   background-color: transparent;

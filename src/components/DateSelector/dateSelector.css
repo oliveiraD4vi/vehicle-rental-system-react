@@ -1,0 +1,23 @@
+.selector-container {
+  width: 60%;
+  padding: 40px 70px;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+}
+
+.selector-container .reservation-date-form {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.selector-container .reservation-date-form > .form-date {
+  width: 100%;
+  display: grid;
+  gap: 10px;
+}
+
+.selector-container .reservation-date-form .secondary-button {
+  /* height: 84px; */
+  margin-left: 25px;
+}

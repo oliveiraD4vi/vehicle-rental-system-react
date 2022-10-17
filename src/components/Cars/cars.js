@@ -1,7 +1,9 @@
+import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Input, Pagination, Select } from "antd";
 
 import notification from "../../services/notification";
+import DateSelector from "../DateSelector/dateSelector";
 import WhiteCar from "../../assets/car-example-white.png";
 import api from "../../services/api";
 import Car from "./Car/car";
@@ -9,27 +11,38 @@ import Car from "./Car/car";
 import "./cars.css";
 
 const Cars = () => {
+  const location = useLocation();
+
   const [data, setData] = useState();
   const [loading, setLoading] = useState();
   const [disabled, setDisabled] = useState();
   const [searchValue, setSearchValue] = useState(null);
   const [pagination, setPagination] = useState();
   const [totalCount, setTotalCount] = useState();
+  const [reservationData, setReservationData] = useState();
 
   const { Search } = Input;
   const { Option } = Select;
 
   useEffect(() => {
-    async function fetchData() {
-      setLoading(true);
-      setDisabled(true);
+    if (location.state && location.state.data) {
+      setReservationData(location.state.data);
+    }
+  }, []);
 
-      setPagination({ page: 1, size: 5, sort: "ASC" });
-      getData(1, 5, "ASC");
+  useEffect(() => {
+    async function fetchData() {
+      if (reservationData) {
+        setLoading(true);
+        setDisabled(true);
+
+        setPagination({ page: 1, size: 5, sort: "ASC" });
+        getData(1, 5, "ASC");
+      }
     }
 
     fetchData();
-  }, []);
+  }, [reservationData]);
 
   const getData = async (page, size, sort) => {
     try {
@@ -78,6 +91,8 @@ const Cars = () => {
 
   return loading ? (
     <span>Carregando...</span>
+  ) : !reservationData ? (
+    <DateSelector />
   ) : (
     <div className="cars-container">
       <div className="search-container">
