@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { auth } from "../../services/utils";
-import { useNavigate } from "react-router-dom";
+import { auth, rolesPath } from "../../services/utils";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import api from "../../services/api";
 import notification from "../../services/notification";
@@ -10,24 +10,61 @@ import Footer from "../../components/Footer/footer";
 import "./layout.css";
 
 const Layout = ({ children }) => {
+  const location = useLocation();
   const navigate = useNavigate();
+
+  const getPathUser = (role) => {
+    const array = [];
+    rolesPath.forEach((elem) => {
+      if (elem.role.includes(role)) {
+        array.push(elem.path);
+      }
+    });
+
+    return array;
+  };
 
   useEffect(() => {
     async function checkUser() {
-      if (auth.isAuthenticated()) {
-        try {
-          await api.get("/user/check");
-        } catch (error) {
-          notification("error", "Sessão expirada");
+      const { pathname } = location;
 
-          auth.logout();
+      if (auth.getRole()) {
+        let allowedRoutes = getPathUser(auth.getRole());
+
+        if (auth.isAuthenticated() && allowedRoutes.includes(pathname)) {
+          try {
+            await api.get("/user/check");
+          } catch (error) {
+            notification("error", "Sessão expirada");
+
+            auth.logout();
+            navigate("/");
+          }
+        } else if (allowedRoutes.length > 0) {
+          navigate(allowedRoutes[0]);
+        } else if (allowedRoutes.length === 0) {
+          auth
+            .logout()
+            .then(() => {
+              navigate("/login");
+            })
+            .catch(() => {
+              navigate("/login");
+            });
+        } else {
           navigate("/");
+        }
+      } else {
+        let privateRoutes = getPathUser('ADMIN');
+
+        if (privateRoutes.includes(pathname)) {
+          navigate("/login");
         }
       }
     }
 
     checkUser();
-  }, []);
+  }, [children]);
 
   return (
     <div className="layout-container">

@@ -20,49 +20,51 @@ const Header = () => {
         <img src={logo} alt="brand logo" />
       </Button>
 
-      <ul className="navigation-container">
-        <li className="navigation-item">
-          <Button
-            onClick={() => navigate("/")}
-            className={`navigation-btn ${
-              location.pathname === "/" ? "checked" : "unchecked"
-            }`}
-          >
-            HOME
-          </Button>
-        </li>
-        <li className="navigation-item">
-          <Button
-            onClick={() => navigate("/cars")}
-            className={`navigation-btn ${
-              location.pathname === "/cars" ? "checked" : "unchecked"
-            }`}
-          >
-            CARROS
-          </Button>
-        </li>
-        <li className="navigation-item">
-          <Button
-            disabled={auth.isAuthenticated() ? false : true}
-            onClick={() => navigate("/reservations")}
-            className={`navigation-btn ${
-              location.pathname === "/reservations" ? "checked" : "unchecked"
-            }`}
-          >
-            RESERVAS
-          </Button>
-        </li>
-        <li className="navigation-item">
-          <Button
-            onClick={() => navigate("/about")}
-            className={`navigation-btn ${
-              location.pathname === "/about" ? "checked" : "unchecked"
-            }`}
-          >
-            SOBRE NÓS
-          </Button>
-        </li>
-      </ul>
+      {!auth.isAuthenticated() || auth.getRole() === "CLIENT" ? (
+        <ul className="navigation-container">
+          <li className="navigation-item">
+            <Button
+              onClick={() => navigate("/")}
+              className={`navigation-btn ${
+                location.pathname === "/" ? "checked" : "unchecked"
+              }`}
+            >
+              HOME
+            </Button>
+          </li>
+          <li className="navigation-item">
+            <Button
+              onClick={() => navigate("/cars")}
+              className={`navigation-btn ${
+                location.pathname === "/cars" ? "checked" : "unchecked"
+              }`}
+            >
+              CARROS
+            </Button>
+          </li>
+          <li className="navigation-item">
+            <Button
+              disabled={auth.isAuthenticated() ? false : true}
+              onClick={() => navigate("/reservations")}
+              className={`navigation-btn ${
+                location.pathname === "/reservations" ? "checked" : "unchecked"
+              }`}
+            >
+              RESERVAS
+            </Button>
+          </li>
+          <li className="navigation-item">
+            <Button
+              onClick={() => navigate("/about")}
+              className={`navigation-btn ${
+                location.pathname === "/about" ? "checked" : "unchecked"
+              }`}
+            >
+              SOBRE NÓS
+            </Button>
+          </li>
+        </ul>
+      ) : null}
 
       <div className="action-container">
         {auth.isAuthenticated() ? (

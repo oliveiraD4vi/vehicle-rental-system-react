@@ -15,6 +15,7 @@ const About = lazy(() => import("./screens/public/About/about"));
 const Reservations = lazy(() =>
   import("./screens/private/User/Reservation/reservation")
 );
+const AdminHome = lazy(() => import("./screens/private/Admin/Home/home"));
 
 const Routes = () => {
   return (
@@ -66,6 +67,14 @@ const Routes = () => {
             element={
               <Layout>
                 <Reservations />
+              </Layout>
+            }
+          />
+          <Route
+            path="/admin/home"
+            element={
+              <Layout>
+                <AdminHome />
               </Layout>
             }
           />
