@@ -1,4 +1,4 @@
-import CarsComponent from "../../../components/Cars/cars";
+import CarsComponent from "../../../components/User/Cars/cars";
 
 const Cars = () => {
   return (

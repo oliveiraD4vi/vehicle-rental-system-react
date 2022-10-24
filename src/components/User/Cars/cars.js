@@ -2,10 +2,10 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Input, Pagination, Select } from "antd";
 
-import notification from "../../services/notification";
-import DateSelector from "../DateSelector/dateSelector";
-import WhiteCar from "../../assets/car-example-white.png";
-import api from "../../services/api";
+import notification from "../../../services/notification";
+import DateSelector from "../../DateSelector/dateSelector";
+import WhiteCar from "../../../assets/car-example-white.png";
+import api from "../../../services/api";
 import Car from "./Car/car";
 
 import "./cars.css";

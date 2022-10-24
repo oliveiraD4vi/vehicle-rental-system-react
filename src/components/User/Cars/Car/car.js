@@ -1,5 +1,5 @@
 import { ArrowRightOutlined } from "@ant-design/icons";
-import { auth } from "../../../services/utils";
+import { auth } from "../../../../services/utils";
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 

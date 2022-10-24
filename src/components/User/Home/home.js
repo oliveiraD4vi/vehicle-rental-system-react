@@ -8,9 +8,9 @@ import { Button, Card, Carousel, notification } from "antd";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import Image from "../../assets/car-example-green.png";
-import api from "../../services/api";
-import DateSelector from "../DateSelector/dateSelector";
+import Image from "../../../assets/car-example-green.png";
+import api from "../../../services/api";
+import DateSelector from "../../DateSelector/dateSelector";
 
 import "./home.css";
 
