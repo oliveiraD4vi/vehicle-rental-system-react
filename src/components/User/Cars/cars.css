@@ -79,6 +79,6 @@
 .cars-container .container-listing {
   display: grid;
   justify-content: center;
-  grid-template-columns: 100%;
-  gap: 0.25rem;
+  grid-template-columns: 25% 25% 25% 25%;
+  gap: 1rem;
 }

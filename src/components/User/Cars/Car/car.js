@@ -14,40 +14,33 @@ const Car = ({ data, img }) => {
 
   return (
     <div className="car-container">
-      <div className="image-container">
-        <img src={img} alt="white car" />
-      </div>
+      <h1>{data.brand} {data.model}</h1>
 
-      <div className="content">
-        <div className="car-title">
-          <h1>
-            {data.brand} {data.model}
-          </h1>
-          <h1 id="value">R$ {data.value},00</h1>
-        </div>
-        <Button
-          className="offer-button"
-          onClick={() => {
-            if (!auth.isAuthenticated()) {
-              setVehicle(data);
-              navigate("/login", {
-                state: {
-                  data: data,
-                },
-              });
-            } else {
-              setVehicle(data);
-              navigate("/reservations", {
-                state: {
-                  data: data,
-                },
-              });
-            }
-          }}
-        >
-          OFERTA <ArrowRightOutlined />
-        </Button>
-      </div>
+      <img src={img} alt="white car" />
+
+      <Button
+        className="offer-button"
+        onClick={() => {
+          if (!auth.isAuthenticated()) {
+            setVehicle(data);
+            navigate("/login", {
+              state: {
+                data: data,
+              },
+            });
+          } else {
+            setVehicle(data);
+            navigate("/reservations", {
+              state: {
+                data: data,
+              },
+            });
+          }
+        }}
+      >
+        <span id="value">R$ {data.value},00</span>
+        OFERTA <ArrowRightOutlined />
+      </Button>
     </div>
   );
 };

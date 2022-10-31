@@ -129,19 +129,6 @@ const Cars = () => {
           data
             .filter(filterSearch)
             .map((item) => <Car key={item.plate} data={item} img={WhiteCar} />)}
-
-        {pagination && (
-          <Pagination
-            locale={{ items_per_page: ` /  página` }}
-            showSizeChanger
-            current={pagination.page}
-            defaultPageSize={pagination.size}
-            total={totalCount}
-            onChange={onChangePagination}
-            disabled={disabled}
-            pageSizeOptions={["5", "10", "15", "20", "30"]}
-          />
-        )}
       </div>
     </div>
   );
