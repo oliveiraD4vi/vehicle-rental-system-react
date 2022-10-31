@@ -2,10 +2,14 @@ import { ArrowRightOutlined } from "@ant-design/icons";
 import { auth } from "../../../../services/utils";
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { ReservationContext } from "../../../../context/ReservationContext";
 
 import "./car.css";
 
 const Car = ({ data, img }) => {
+  const { setVehicle } = useContext(ReservationContext);
+
   const navigate = useNavigate();
 
   return (
@@ -25,12 +29,14 @@ const Car = ({ data, img }) => {
           className="offer-button"
           onClick={() => {
             if (!auth.isAuthenticated()) {
+              setVehicle(data);
               navigate("/login", {
                 state: {
                   data: data,
                 },
               });
             } else {
+              setVehicle(data);
               navigate("/reservations", {
                 state: {
                   data: data,

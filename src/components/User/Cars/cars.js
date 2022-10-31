@@ -1,6 +1,6 @@
-import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Input, Pagination, Select } from "antd";
+import { ReservationContext } from "../../../context/ReservationContext";
 
 import notification from "../../../services/notification";
 import DateSelector from "../../DateSelector/dateSelector";
@@ -11,7 +11,7 @@ import Car from "./Car/car";
 import "./cars.css";
 
 const Cars = () => {
-  const location = useLocation();
+  const { reservationData } = useContext(ReservationContext);
 
   const [data, setData] = useState();
   const [loading, setLoading] = useState();
@@ -19,16 +19,9 @@ const Cars = () => {
   const [searchValue, setSearchValue] = useState(null);
   const [pagination, setPagination] = useState();
   const [totalCount, setTotalCount] = useState();
-  const [reservationData, setReservationData] = useState();
 
   const { Search } = Input;
   const { Option } = Select;
-
-  useEffect(() => {
-    if (location.state && location.state.data) {
-      setReservationData(location.state.data);
-    }
-  }, []);
 
   useEffect(() => {
     async function fetchData() {
@@ -95,6 +88,8 @@ const Cars = () => {
     <DateSelector />
   ) : (
     <div className="cars-container">
+      <DateSelector data={reservationData} />
+
       <div className="search-container">
         <Search
           className="search-input"

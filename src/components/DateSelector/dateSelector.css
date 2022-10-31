@@ -1,8 +1,18 @@
+.centered-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .selector-container {
-  width: 60%;
+  width: 50%;
   padding: 40px 70px;
-  border-radius: 4px;
   background-color: var(--primary-color);
+}
+
+.selector-container h2 > span {
+  color: var(--white-900);
 }
 
 .selector-container .reservation-date-form {
@@ -14,10 +24,10 @@
 .selector-container .reservation-date-form > .form-date {
   width: 100%;
   display: grid;
+  grid-template-columns: 50% 50%;
   gap: 10px;
 }
 
 .selector-container .reservation-date-form .secondary-button {
-  /* height: 84px; */
   margin-left: 25px;
 }

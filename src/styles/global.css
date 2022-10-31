@@ -50,7 +50,6 @@ body {
 
 .secondary-button {
   border: none;
-  height: 45px;
   padding: 5px 25px;
   font-weight: bold;
   color: var(--primary-color);

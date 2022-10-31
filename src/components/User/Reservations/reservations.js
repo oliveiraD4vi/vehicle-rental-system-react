@@ -1,15 +1,10 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+// import { useContext } from "react";
+// import { ReservationContext } from "../../../context/ReservationContext";
 
 import "./reservations.css";
 
 const Reservations = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    if (location.state && location.state.data)
-      console.log(location.state.data);
-  }, []);
+  // const { vehicle } = useContext(ReservationContext);
 
   return <div className="reservations-container">Reservations</div>;
 };

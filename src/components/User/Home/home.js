@@ -5,8 +5,9 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import { Button, Card, Carousel, notification } from "antd";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { ReservationContext } from "../../../context/ReservationContext";
 
 import Image from "../../../assets/car-example-green.png";
 import api from "../../../services/api";
@@ -15,18 +16,18 @@ import DateSelector from "../../DateSelector/dateSelector";
 import "./home.css";
 
 const Home = () => {
+  const { vehicle } = useContext(ReservationContext);
+
   const [vehicleList, setVehicleList] = useState();
 
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
-    if (location.state && location.state.data) {
-      navigate("/reservations", {
-        state: location.state,
-      });
+    if (vehicle && location.state && location.state.data) {
+      navigate("/reservations");
     }
-  }, []);
+  }, [vehicle]);
 
   useEffect(() => {
     async function fetchData() {

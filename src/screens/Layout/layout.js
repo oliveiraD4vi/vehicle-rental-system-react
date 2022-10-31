@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { auth, rolesPath } from "../../services/utils";
 import { useLocation, useNavigate } from "react-router-dom";
+import { ReservationProvider } from "../../context/ReservationContext";
 
 import api from "../../services/api";
 import notification from "../../services/notification";
@@ -38,7 +39,7 @@ const Layout = ({ children }) => {
             notification("error", "Sessão expirada");
 
             auth.logout();
-            navigate("/");
+            navigate(allowedRoutes[0] || "/");
           }
         } else if (allowedRoutes.length > 0) {
           navigate(allowedRoutes[0]);
@@ -52,10 +53,10 @@ const Layout = ({ children }) => {
               navigate("/login");
             });
         } else {
-          navigate("/");
+          navigate(allowedRoutes[0] || "/");
         }
       } else {
-        let privateRoutes = getPathUser('ADMIN');
+        let privateRoutes = getPathUser("ADMIN");
 
         if (privateRoutes.includes(pathname)) {
           navigate("/login");
@@ -67,11 +68,13 @@ const Layout = ({ children }) => {
   }, [children]);
 
   return (
-    <div className="layout-container">
-      <Header />
-      <main>{children}</main>
-      <Footer />
-    </div>
+    <ReservationProvider>
+      <div className="layout-container">
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </div>
+    </ReservationProvider>
   );
 };
 

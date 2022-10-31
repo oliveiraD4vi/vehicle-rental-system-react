@@ -34,22 +34,22 @@ export const auth = {
 export const rolesPath = [
   {
     path: "/",
-    role: ['CLIENT']
+    role: ["CLIENT"],
   },
   {
     path: "/cars",
-    role: ['CLIENT']
+    role: ["CLIENT"],
   },
   {
     path: "/about",
-    role: ['CLIENT']
+    role: ["CLIENT"],
   },
   {
     path: "/reservations",
-    role: ['CLIENT']
+    role: ["CLIENT"],
   },
   {
     path: "/admin/home",
-    role: ['ADMIN']
+    role: ["ADMIN"],
   },
 ];
