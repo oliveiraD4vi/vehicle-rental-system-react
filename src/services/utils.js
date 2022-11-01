@@ -52,4 +52,28 @@ export const rolesPath = [
     path: "/admin/home",
     role: ["ADMIN"],
   },
+  {
+    path: "/admin/users",
+    role: ["ADMIN"],
+  },
+  {
+    path: "/admin/users/data",
+    role: ["ADMIN"],
+  },
+  {
+    path: "/admin/vehicles",
+    role: ["ADMIN"],
+  },
+  {
+    path: "/admin/vehicles/data",
+    role: ["ADMIN"],
+  },
+  {
+    path: "/admin/reservations",
+    role: ["ADMIN"],
+  },
+  {
+    path: "/admin/reservations/data",
+    role: ["ADMIN"],
+  },
 ];

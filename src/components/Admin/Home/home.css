@@ -1,0 +1,27 @@
+.admin-home-container {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 33% 33% 33%;
+}
+
+.admin-home-container .menu-item {
+  display: grid;
+  text-align: center;
+  padding: 48px 42px;
+  font-size: 24px;
+  border-radius: 16px;
+  color: var(--primary-color);
+  border: 3px solid var(--primary-color);
+  transition: all 200ms ease-in-out;
+  font-weight: bold;
+}
+
+.admin-home-container .menu-item:hover {
+  color: var(--white-900);
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.admin-home-container .menu-item .anticon {
+  font-size: 48px;
+}

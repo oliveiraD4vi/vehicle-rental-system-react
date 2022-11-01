@@ -16,6 +16,22 @@ const Reservations = lazy(() =>
   import("./screens/private/User/Reservation/reservation")
 );
 const AdminHome = lazy(() => import("./screens/private/Admin/Home/home"));
+const AdminReservation = lazy(() =>
+  import("./screens/private/Admin/Reservation/reservation")
+);
+const AdminReservationData = lazy(() =>
+  import("./screens/private/Admin/Reservation/Data/data")
+);
+const AdminVehicle = lazy(() =>
+  import("./screens/private/Admin/Vehicle/vehicle")
+);
+const AdminVehicleData = lazy(() =>
+  import("./screens/private/Admin/Vehicle/Data/data")
+);
+const AdminUser = lazy(() => import("./screens/private/Admin/User/user"));
+const AdminUserData = lazy(() =>
+  import("./screens/private/Admin/User/Data/data")
+);
 
 const Routes = () => {
   return (
@@ -75,6 +91,62 @@ const Routes = () => {
             element={
               <Layout>
                 <AdminHome />
+              </Layout>
+            }
+          />
+          <Route
+            path="/admin/home"
+            element={
+              <Layout>
+                <AdminHome />
+              </Layout>
+            }
+          />
+          <Route
+            path="/admin/users"
+            element={
+              <Layout>
+                <AdminUser />
+              </Layout>
+            }
+          />
+          <Route
+            path="/admin/users/data"
+            element={
+              <Layout>
+                <AdminUserData />
+              </Layout>
+            }
+          />
+          <Route
+            path="/admin/reservations"
+            element={
+              <Layout>
+                <AdminReservation />
+              </Layout>
+            }
+          />
+          <Route
+            path="/admin/reservations/data"
+            element={
+              <Layout>
+                <AdminReservationData />
+              </Layout>
+            }
+          />
+          <Route
+            path="/admin/vehicles"
+            element={
+              <Layout>
+                <AdminVehicle />
+              </Layout>
+            }
+          />
+          <Route
+            path="/admin/vehicles/data"
+            element={
+              <Layout>
+                <AdminVehicleData />
               </Layout>
             }
           />

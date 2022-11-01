@@ -14,7 +14,9 @@ const Car = ({ data, img }) => {
 
   return (
     <div className="car-container">
-      <h1>{data.brand} {data.model}</h1>
+      <h1>
+        {data.brand} {data.model}
+      </h1>
 
       <img src={img} alt="white car" />
 
