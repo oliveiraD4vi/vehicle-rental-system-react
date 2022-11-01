@@ -10,7 +10,9 @@ import { useEffect, useState, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ReservationContext } from "../../../context/ReservationContext";
 
-import Image from "../../../assets/car-example-green.png";
+import image1 from "../../../assets/car-example-green.png";
+import image2 from "../../../assets/car-example-grey.png";
+import image3 from "../../../assets/car-example-white.png";
 import api from "../../../services/api";
 import DateSelector from "../../DateSelector/dateSelector";
 
@@ -23,6 +25,8 @@ const Home = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
+
+  const images = [image1, image2, image3];
 
   useEffect(() => {
     if (vehicle && location.state && location.state.data) {
@@ -65,7 +69,10 @@ const Home = () => {
             {vehicleList.map((vehicle) => (
               <div className="vehicle-container" key={vehicle.plate}>
                 <div>
-                  <img src={Image} alt="green vehicle" />
+                  <img
+                    src={images[Math.floor(Math.random() * 3)]}
+                    alt="vehicle"
+                  />
                 </div>
                 <h3>
                   {vehicle.brand} {vehicle.model}

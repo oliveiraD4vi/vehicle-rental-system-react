@@ -4,7 +4,9 @@ import { ReservationContext } from "../../../context/ReservationContext";
 
 import notification from "../../../services/notification";
 import DateSelector from "../../DateSelector/dateSelector";
-import WhiteCar from "../../../assets/car-example-white.png";
+import image1 from "../../../assets/car-example-green.png";
+import image2 from "../../../assets/car-example-grey.png";
+import image3 from "../../../assets/car-example-white.png";
 import api from "../../../services/api";
 import Car from "./Car/car";
 
@@ -22,6 +24,8 @@ const Cars = () => {
 
   const { Search } = Input;
   const { Option } = Select;
+
+  const images = [image1, image2, image3];
 
   useEffect(() => {
     async function fetchData() {
@@ -130,7 +134,11 @@ const Cars = () => {
             data
               .filter(filterSearch)
               .map((item) => (
-                <Car key={item.plate} data={item} img={WhiteCar} />
+                <Car
+                  key={item.plate}
+                  data={item}
+                  img={images[Math.floor(Math.random() * 3)]}
+                />
               ))}
         </div>
       </div>
