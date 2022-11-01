@@ -76,9 +76,17 @@
   padding-left: 10px;
 }
 
+.cars-container .viewer-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .cars-container .container-listing {
+  width: 85%;
   display: grid;
   justify-content: center;
   grid-template-columns: 25% 25% 25% 25%;
-  gap: 1rem;
+  gap: 5rem;
 }

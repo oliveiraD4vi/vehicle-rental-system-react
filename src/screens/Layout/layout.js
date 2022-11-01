@@ -39,7 +39,7 @@ const Layout = ({ children }) => {
             notification("error", "Sessão expirada");
 
             auth.logout();
-            navigate(allowedRoutes[0] || "/");
+            navigate(allowedRoutes[0] || "/login");
           }
         } else if (allowedRoutes.length > 0) {
           navigate(allowedRoutes[0]);

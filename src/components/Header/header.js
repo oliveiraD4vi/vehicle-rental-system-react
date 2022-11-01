@@ -42,17 +42,21 @@ const Header = () => {
               CARROS
             </Button>
           </li>
-          <li className="navigation-item">
-            <Button
-              disabled={auth.isAuthenticated() ? false : true}
-              onClick={() => navigate("/reservations")}
-              className={`navigation-btn ${
-                location.pathname === "/reservations" ? "checked" : "unchecked"
-              }`}
-            >
-              RESERVAS
-            </Button>
-          </li>
+          {auth.isAuthenticated() && (
+            <li className="navigation-item">
+              <Button
+                disabled={auth.isAuthenticated() ? false : true}
+                onClick={() => navigate("/reservations")}
+                className={`navigation-btn ${
+                  location.pathname === "/reservations"
+                    ? "checked"
+                    : "unchecked"
+                }`}
+              >
+                RESERVAS
+              </Button>
+            </li>
+          )}
           <li className="navigation-item">
             <Button
               onClick={() => navigate("/about")}

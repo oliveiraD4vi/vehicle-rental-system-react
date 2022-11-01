@@ -41,7 +41,9 @@ const Car = ({ data, img }) => {
         }}
       >
         <span id="value">R$ {data.value},00</span>
-        OFERTA <ArrowRightOutlined />
+        <span id="text">
+          OFERTA <ArrowRightOutlined />
+        </span>
       </Button>
     </div>
   );

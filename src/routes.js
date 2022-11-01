@@ -95,14 +95,6 @@ const Routes = () => {
             }
           />
           <Route
-            path="/admin/home"
-            element={
-              <Layout>
-                <AdminHome />
-              </Layout>
-            }
-          />
-          <Route
             path="/admin/users"
             element={
               <Layout>

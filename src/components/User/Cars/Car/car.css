@@ -5,12 +5,6 @@
   display: grid;
   gap: 10px;
   text-align: center;
-  transition: all 200ms ease-in-out;
-  box-shadow: var(--box-shadow);
-}
-
-.car-container:hover {
-  transform: scale(1.1);
 }
 
 .car-container > img {
@@ -25,7 +19,11 @@
 }
 
 .offer-button:hover #value {
-  display: block;
+  display: inline;
+}
+
+.offer-button:hover #text {
+  display: none;
 }
 
 .offer-button {

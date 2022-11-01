@@ -29,8 +29,8 @@ const Cars = () => {
         setLoading(true);
         setDisabled(true);
 
-        setPagination({ page: 1, size: 5, sort: "ASC" });
-        getData(1, 5, "ASC");
+        setPagination({ page: 1, size: 4, sort: "ASC" });
+        getData(1, 4, "ASC");
       }
     }
 
@@ -110,7 +110,7 @@ const Cars = () => {
             total={totalCount}
             onChange={onChangePagination}
             disabled={disabled}
-            pageSizeOptions={["5", "10", "15", "20", "30"]}
+            pageSizeOptions={["4", "12", "20", "28"]}
           />
         )}
 
@@ -124,12 +124,29 @@ const Cars = () => {
         </div>
       </div>
 
-      <div className="container-listing">
-        {data &&
-          data
-            .filter(filterSearch)
-            .map((item) => <Car key={item.plate} data={item} img={WhiteCar} />)}
+      <div className="viewer-container">
+        <div className="container-listing">
+          {data &&
+            data
+              .filter(filterSearch)
+              .map((item) => (
+                <Car key={item.plate} data={item} img={WhiteCar} />
+              ))}
+        </div>
       </div>
+
+      {/* {pagination && (
+        <Pagination
+          locale={{ items_per_page: ` /  página` }}
+          showSizeChanger
+          current={pagination.page}
+          defaultPageSize={pagination.size}
+          total={totalCount}
+          onChange={onChangePagination}
+          disabled={disabled}
+          pageSizeOptions={["4", "12", "20", "28"]}
+        />
+      )} */}
     </div>
   );
 };
