@@ -7,8 +7,9 @@
 
 .selector-container {
   width: 50%;
-  padding: 40px 70px;
+  padding: 60px 70px;
   background-color: var(--primary-color);
+  box-shadow: var(--box-shadow);
 }
 
 .selector-container h2 > span {

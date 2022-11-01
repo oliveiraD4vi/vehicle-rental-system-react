@@ -6,6 +6,19 @@
   --box-shadow: 0px 5px 10px 5px rgba(0, 8, 20, 0.05);
 }
 
+body::-webkit-scrollbar-track {
+  background-color: #F4F4F4;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+  background: #F4F4F4;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #0E151F;
+}
+
 html, body {
   min-height: 100%;
 }

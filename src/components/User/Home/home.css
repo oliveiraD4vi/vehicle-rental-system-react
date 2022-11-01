@@ -70,7 +70,7 @@
 .home-container .cards-container .cards {
   display: grid;
   justify-content: center;
-  grid-template-columns: 15% 15% 15%;
+  grid-template-columns: 15% 15% 15% 15%;
   gap: 20px;
 }
 
@@ -84,6 +84,7 @@
   flex-direction: column;
   text-align: center;
   height: 100%;
+  min-width: 260px;
   align-items: center;
   justify-content: space-between;
 }

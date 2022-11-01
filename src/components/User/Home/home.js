@@ -1,5 +1,6 @@
 import {
   ArrowRightOutlined,
+  CalendarOutlined,
   CheckCircleOutlined,
   FileTextOutlined,
   SearchOutlined,
@@ -103,11 +104,34 @@ const Home = () => {
         <div className="cards">
           <div className="card">
             <div className="card-icon">
+              <CalendarOutlined />
+            </div>
+            <Card>
+              <div className="content">
+                <h3>Escolha as datas</h3>
+                <p>
+                  você precisa nos dizer quando vai retirar o carro e quando vai
+                  trazer ele de volta pra gente
+                </p>
+              </div>
+
+              <Button
+                className="primary-button"
+                onClick={() => navigate("/cars")}
+                style={{ height: "auto", padding: "5px 10px" }}
+              >
+                COMEÇAR <ArrowRightOutlined />
+              </Button>
+            </Card>
+          </div>
+
+          <div className="card">
+            <div className="card-icon">
               <SearchOutlined />
             </div>
             <Card>
               <div className="content">
-                <h3>procure um carro</h3>
+                <h3>Procure um carro</h3>
                 <p>
                   temos uma grande gama de carros que você pode escolher,
                   verifique nossa lista!
@@ -131,7 +155,7 @@ const Home = () => {
 
             <Card>
               <div className="content">
-                <h3>preencha o form</h3>
+                <h3>Preencha o form</h3>
                 <p>
                   só precisamos saber algumas coisas sobre a reserva e sobre
                   você, o cliente
@@ -154,7 +178,7 @@ const Home = () => {
             </div>
             <Card>
               <div className="content">
-                <h3>retire o carro</h3>
+                <h3>Retire o carro</h3>
                 <p>
                   ao realizar o pagamento você receberá um comprovante para
                   retirar o carro!
