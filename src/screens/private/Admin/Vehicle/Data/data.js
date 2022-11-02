@@ -1,4 +1,4 @@
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, Switch } from "antd";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -51,9 +51,25 @@ const Data = () => {
     }
   };
 
+  const onChange = (checked) => {
+    if (checked) {
+      setInsert(true);
+      setVehicleData(null);
+    } else {
+      setInsert(false);
+      setVehicleData(state.data);
+    }
+  };
+
   return (
     <div className="page-container">
-      <DataComponent title={vehicleData ? "Dados" : "Inserir veículo"}>
+      <DataComponent title={state.data ? "Dados" : "Inserir veículo"}>
+        {state && (
+          <div className="editor-switch">
+            <span>EDIÇÃO: </span>
+            <Switch onChange={onChange} />
+          </div>
+        )}
         {vehicleData ? (
           <div className="card">
             <img
@@ -111,7 +127,11 @@ const Data = () => {
                 },
               ]}
             >
-              <Input disabled={disabled} placeholder="Marca" />
+              <Input
+                value={state.data ? state.data.brand : null}
+                disabled={disabled}
+                placeholder="Marca"
+              />
             </Form.Item>
 
             <Form.Item
@@ -127,7 +147,11 @@ const Data = () => {
                 },
               ]}
             >
-              <Input disabled={disabled} placeholder="Modelo" />
+              <Input
+                value={state.data ? state.data.model : null}
+                disabled={disabled}
+                placeholder="Modelo"
+              />
             </Form.Item>
 
             <Form.Item
@@ -143,7 +167,11 @@ const Data = () => {
                 },
               ]}
             >
-              <Input disabled={disabled} placeholder="Cor" />
+              <Input
+                value={state.data ? state.data.color : null}
+                disabled={disabled}
+                placeholder="Cor"
+              />
             </Form.Item>
 
             <Form.Item
@@ -159,7 +187,11 @@ const Data = () => {
                 },
               ]}
             >
-              <Input disabled={disabled} placeholder="Placa" />
+              <Input
+                value={state.data ? state.data.plate : null}
+                disabled={disabled}
+                placeholder="Placa"
+              />
             </Form.Item>
 
             <Form.Item
@@ -175,7 +207,11 @@ const Data = () => {
                 },
               ]}
             >
-              <Input disabled={disabled} placeholder="Diária (R$)" />
+              <Input
+                value={state.data ? state.data.value : null}
+                disabled={disabled}
+                placeholder="Diária (R$)"
+              />
             </Form.Item>
 
             <Form.Item className="btn">

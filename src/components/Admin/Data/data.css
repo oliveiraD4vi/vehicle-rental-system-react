@@ -45,3 +45,19 @@
   display: grid;
   gap: 20px;
 }
+
+.editor-switch {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.editor-switch span {
+  margin-right: 10px;
+}
+
+.editor-switch .ant-switch-checked {
+  background-color: var(--primary-color);
+}
