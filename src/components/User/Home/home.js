@@ -79,6 +79,7 @@ const Home = () => {
                 </h3>
                 <span>2020</span>
                 <Button
+                  type="primary"
                   onClick={() =>
                     navigate("/reservations", {
                       state: {
@@ -123,6 +124,7 @@ const Home = () => {
               </div>
 
               <Button
+                type="primary"
                 className="primary-button"
                 onClick={() => navigate("/cars")}
                 style={{ height: "auto", padding: "5px 10px" }}
@@ -146,6 +148,7 @@ const Home = () => {
               </div>
 
               <Button
+                type="primary"
                 className="primary-button"
                 onClick={() => navigate("/cars")}
                 style={{ height: "auto", padding: "5px 10px" }}
@@ -170,6 +173,7 @@ const Home = () => {
               </div>
 
               <Button
+                type="primary"
                 className="primary-button"
                 onClick={() => navigate("/cars")}
                 style={{ height: "auto", padding: "5px 10px" }}
@@ -193,6 +197,7 @@ const Home = () => {
               </div>
 
               <Button
+                type="primary"
                 className="primary-button"
                 onClick={() => navigate("/cars")}
                 style={{ height: "auto", padding: "5px 10px" }}

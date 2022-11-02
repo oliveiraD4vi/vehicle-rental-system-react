@@ -73,6 +73,7 @@ const Header = () => {
       <div className="action-container">
         {auth.isAuthenticated() ? (
           <Button
+            type="primary"
             onClick={() => {
               auth.logout();
               navigate("/login");
@@ -83,13 +84,18 @@ const Header = () => {
           </Button>
         ) : location.pathname === "/login" ? (
           <Button
+            type="primary"
             onClick={() => navigate("/register")}
             className="primary-button"
           >
             CADASTRAR
           </Button>
         ) : location.pathname === "/register" ? (
-          <Button onClick={() => navigate("/login")} className="primary-button">
+          <Button
+            type="primary"
+            onClick={() => navigate("/login")}
+            className="primary-button"
+          >
             ENTRAR
           </Button>
         ) : (
@@ -102,6 +108,7 @@ const Header = () => {
             </Button>
 
             <Button
+              type="primary"
               onClick={() => navigate("/login")}
               className="primary-button"
             >
