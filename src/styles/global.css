@@ -127,18 +127,20 @@ body {
   color: var(--cancel-color);
 }
 
-.action-column .add-button {
+.add-button {
   background-color: transparent;
-  border: 1px solid var(--add-color);
+  border: 2px solid var(--add-color);
   margin: 0;
   padding: 0;
-  min-width: 0;
-  width: 24px;
-  height: 24px;
 }
 
-.action-column .add-button .anticon {
-  font-size: 12px;
+.add-button:hover,
+.add-button:focus {
+  background-color: transparent;
+  border: 2px solid var(--add-color);
+}
+
+.add-button .anticon {
   color: var(--add-color);
 }
 

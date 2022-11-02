@@ -1,7 +1,6 @@
-import { CloseOutlined, PlusOutlined } from "@ant-design/icons";
+import { CloseOutlined } from "@ant-design/icons";
 import { Button, Modal } from "antd";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 import api from "../../../services/api";
 import notification from "../../../services/notification";
@@ -17,8 +16,6 @@ const Reservation = () => {
   const [loading, setLoading] = useState();
 
   const { confirm } = Modal;
-
-  const navigate = useNavigate();
 
   const getDataList = async (page, size, search) => {
     setLoading(true);
@@ -117,17 +114,6 @@ const Reservation = () => {
             onClick={(e) => {
               e.stopPropagation();
               confirmDelete(record.id);
-            }}
-          />
-
-          <Button
-            type="primary"
-            className="add-button"
-            shape="circle"
-            icon={<PlusOutlined />}
-            onClick={(e) => {
-              e.stopPropagation();
-              navigate("/admin/reservations/data");
             }}
           />
         </div>

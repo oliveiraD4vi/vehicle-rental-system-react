@@ -5,9 +5,11 @@ import {
   Table as TableComponent,
   Pagination,
   Input,
+  Button,
 } from "antd";
 
 import "./table.css";
+import { PlusOutlined } from "@ant-design/icons";
 
 const Table = ({
   getDataList,
@@ -71,6 +73,14 @@ const Table = ({
           onSearch={(value) => handleSearch(value)}
           onChange={(e) => onChangeSearchValue(e)}
           loading={loading}
+        />
+
+        <Button
+          type="primary"
+          className="add-button"
+          shape="circle"
+          icon={<PlusOutlined />}
+          onClick={() => navigate(goPath)}
         />
       </div>
       <div className="table-box">
