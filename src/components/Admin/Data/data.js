@@ -1,10 +1,12 @@
 import PageHeader from "../PageHeader/pageHeader";
 
-const Data = ({ data }) => {
+import "./data.css";
+
+const Data = ({ children }) => {
   return (
     <div className="data-container">
       <PageHeader title="Data" />
-      <h1>Data {data}</h1>
+      {children}
     </div>
   );
 };

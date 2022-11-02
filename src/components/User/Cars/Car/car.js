@@ -23,6 +23,7 @@ const Car = ({ data, img }) => {
       </div>
 
       <Button
+        type="primary"
         className="offer-button"
         onClick={() => {
           if (!auth.isAuthenticated()) {

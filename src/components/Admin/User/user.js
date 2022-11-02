@@ -38,8 +38,12 @@ const User = () => {
 
       if (search) {
         const list = [];
-        data.cars.forEach((item) => {
-          if (item.name.toLowerCase().includes(search.toLowerCase())) {
+        data.users.forEach((item) => {
+          if (
+            item.name.toLowerCase().includes(search.toLowerCase()) ||
+            item.email.toLowerCase().includes(search.toLowerCase()) ||
+            item.role.toLowerCase().includes(search.toLowerCase())
+          ) {
             list.push(item);
           }
         });
@@ -142,7 +146,7 @@ const User = () => {
           columns={columns}
           goPath="/admin/users/data"
           lastPath="/admin/users"
-          searchPlaceholder="Pesquisar por nome"
+          searchPlaceholder="Pesquisar por nome, email ou role"
         />
       )}
     </div>
