@@ -12,7 +12,7 @@ const About = () => {
           Este é um projeto para a disciplina de Desenvolvimento de Software
           para Web. Visite{" "}
           <a
-            href="https://github.com/oliveiraD4vi/vehicle-rental-system-app"
+            href="https://github.com/oliveiraD4vi/vehicle-rental-system-web"
             target="_blank"
             rel="noreferrer"
           >

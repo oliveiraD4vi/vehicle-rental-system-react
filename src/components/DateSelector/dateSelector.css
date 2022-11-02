@@ -12,6 +12,10 @@
   box-shadow: var(--box-shadow);
 }
 
+.selector-container h2 {
+  font-size: 32px;
+}
+
 .selector-container h2 > span {
   color: var(--white-900);
 }

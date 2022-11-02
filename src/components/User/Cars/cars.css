@@ -88,5 +88,5 @@
   display: grid;
   justify-content: center;
   grid-template-columns: 25% 25% 25% 25%;
-  gap: 5rem;
+  gap: 4rem;
 }

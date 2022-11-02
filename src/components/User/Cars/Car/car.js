@@ -18,7 +18,9 @@ const Car = ({ data, img }) => {
         {data.brand} {data.model}
       </h1>
 
-      <img src={img} alt="white car" />
+      <div className="image-container">
+        <img src={img} alt="white car" />
+      </div>
 
       <Button
         className="offer-button"
