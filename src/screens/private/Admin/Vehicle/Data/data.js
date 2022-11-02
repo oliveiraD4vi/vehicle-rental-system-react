@@ -40,6 +40,7 @@ const Data = () => {
       navigate("/admin/vehicles/data", {
         state: {
           data,
+          goBack: "/admin/vehicles",
         },
       });
     } catch ({ response }) {
