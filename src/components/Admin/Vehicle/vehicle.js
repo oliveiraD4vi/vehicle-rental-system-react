@@ -122,23 +122,24 @@ const Vehicle = () => {
     },
   ];
 
-  return !dataList ? (
-    <span>Carregando...</span>
-  ) : (
+  return (
     <div className="vehicles-container">
       <PageHeader title="Veículos" />
-      <Table
-        dataList={dataList}
-        getDataList={getDataList}
-        pagination={pagination}
-        setPagination={setPagination}
-        disabledPagination={disabledPagination}
-        loading={loading}
-        setLoading={setLoading}
-        columns={columns}
-        goPath="/admin/vehicles/data"
-        lastPath="/admin/vehicles"
-      />
+      {dataList && (
+        <Table
+          dataList={dataList}
+          getDataList={getDataList}
+          pagination={pagination}
+          setPagination={setPagination}
+          disabledPagination={disabledPagination}
+          loading={loading}
+          setLoading={setLoading}
+          columns={columns}
+          goPath="/admin/vehicles/data"
+          lastPath="/admin/vehicles"
+          searchPlaceholder="Pesquisar por marca ou modelo"
+        />
+      )}
     </div>
   );
 };

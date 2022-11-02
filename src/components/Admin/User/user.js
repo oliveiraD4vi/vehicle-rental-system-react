@@ -44,7 +44,7 @@ const User = () => {
         });
         setDataList(list);
       } else {
-        setDataList(data.cars);
+        setDataList(data.users);
       }
 
       setLoading(false);
@@ -114,23 +114,24 @@ const User = () => {
     },
   ];
 
-  return !dataList ? (
-    <span>Carregando...</span>
-  ) : (
+  return (
     <div className="users-container">
       <PageHeader title="Usuários" />
-      <Table
-        dataList={dataList}
-        getDataList={getDataList}
-        pagination={pagination}
-        setPagination={setPagination}
-        disabledPagination={disabledPagination}
-        loading={loading}
-        setLoading={setLoading}
-        columns={columns}
-        goPath="/admin/users/data"
-        lastPath="/admin/users"
-      />
+      {dataList && (
+        <Table
+          dataList={dataList}
+          getDataList={getDataList}
+          pagination={pagination}
+          setPagination={setPagination}
+          disabledPagination={disabledPagination}
+          loading={loading}
+          setLoading={setLoading}
+          columns={columns}
+          goPath="/admin/users/data"
+          lastPath="/admin/users"
+          searchPlaceholder="Pesquisar por nome"
+        />
+      )}
     </div>
   );
 };

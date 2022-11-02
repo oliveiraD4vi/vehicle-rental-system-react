@@ -47,7 +47,7 @@ const Reservation = () => {
         });
         setDataList(list);
       } else {
-        setDataList(data.cars);
+        setDataList(data.reservations);
       }
 
       setLoading(false);
@@ -122,23 +122,24 @@ const Reservation = () => {
     },
   ];
 
-  return !dataList ? (
-    <span>Carregando...</span>
-  ) : (
+  return (
     <div className="reservations-container">
       <PageHeader title="Reservas" />
-      <Table
-        dataList={dataList}
-        getDataList={getDataList}
-        pagination={pagination}
-        setPagination={setPagination}
-        disabledPagination={disabledPagination}
-        loading={loading}
-        setLoading={setLoading}
-        columns={columns}
-        goPath="/admin/reservations/data"
-        lastPath="/admin/reservations"
-      />
+      {dataList && (
+        <Table
+          dataList={dataList}
+          getDataList={getDataList}
+          pagination={pagination}
+          setPagination={setPagination}
+          disabledPagination={disabledPagination}
+          loading={loading}
+          setLoading={setLoading}
+          columns={columns}
+          goPath="/admin/reservations/data"
+          lastPath="/admin/reservations"
+          searchPlaceholder="Pesquisar por id do usuário ou do veículo"
+        />
+      )}
     </div>
   );
 };

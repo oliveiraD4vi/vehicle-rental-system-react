@@ -20,6 +20,7 @@ const Table = ({
   columns,
   goPath,
   lastPath,
+  searchPlaceholder,
 }) => {
   const customizeRenderEmpty = () => (
     <Empty description={<span>No data available</span>} />
@@ -68,7 +69,7 @@ const Table = ({
       <div className="filter search-container">
         <Search
           className="search-input"
-          placeholder="Pesquisar por marca ou modelo"
+          placeholder={searchPlaceholder}
           onSearch={(value) => handleSearch(value)}
           onChange={(e) => onChangeSearchValue(e)}
           loading={loading}
