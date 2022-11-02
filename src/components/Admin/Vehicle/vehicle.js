@@ -1,5 +1,5 @@
 import { CloseOutlined } from "@ant-design/icons";
-import { Button, Modal } from "antd";
+import { Button, Modal, Tag } from "antd";
 import { useState, useEffect } from "react";
 
 import api from "../../../services/api";
@@ -95,7 +95,16 @@ const Vehicle = () => {
     {
       title: "Cor",
       key: "color",
-      dataIndex: "color",
+      render: (record) => (
+        <Tag
+          className={
+            record.color.toLowerCase() === "white" ? "white label" : "label"
+          }
+          color={record.color}
+        >
+          {record.color}
+        </Tag>
+      ),
     },
     {
       title: "Diária (R$)",
