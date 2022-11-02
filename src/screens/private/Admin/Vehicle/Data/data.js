@@ -7,8 +7,6 @@ import image3 from "../../../../../assets/car-example-white.png";
 
 import DataComponent from "../../../../../components/Admin/Data/data";
 
-import "./data.css";
-
 const Data = () => {
   const [vehicleData, setVehicleData] = useState();
 
