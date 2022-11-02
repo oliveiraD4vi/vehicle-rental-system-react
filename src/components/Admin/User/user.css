@@ -1,3 +1,8 @@
 .users-container {
   width: 100%;
 }
+
+.users-container .action-column .delete-button {
+  background-color: var(--cancel-color);
+  border: none;
+}

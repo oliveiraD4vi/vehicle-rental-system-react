@@ -1,3 +1,8 @@
 .reservations-container {
   width: 100%;
 }
+
+.reservations-container .action-column .delete-button {
+  background-color: var(--cancel-color);
+  border: none;
+}

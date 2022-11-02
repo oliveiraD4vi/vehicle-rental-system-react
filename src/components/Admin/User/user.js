@@ -38,10 +38,7 @@ const User = () => {
       if (search) {
         const list = [];
         data.cars.forEach((item) => {
-          if (
-            item.brand.toLowerCase().includes(search.toLowerCase()) ||
-            item.model.toLowerCase().includes(search.toLowerCase())
-          ) {
+          if (item.name.toLowerCase().includes(search.toLowerCase())) {
             list.push(item);
           }
         });
@@ -59,7 +56,7 @@ const User = () => {
 
   const confirmDelete = (id) => {
     confirm({
-      title: `Você deseja deletar esse veículo?`,
+      title: `Você deseja deletar esse usuário?`,
       async onOk() {
         try {
           const { data } = await api.delete(`/user/delete?id=${id}`);
