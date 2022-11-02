@@ -2,11 +2,6 @@
   width: 100%;
 }
 
-.vehicles-container .action-column .delete-button {
-  background-color: var(--cancel-color);
-  border: none;
-}
-
 .vehicles-container .label {
   text-align: center;
   min-width: 60px;

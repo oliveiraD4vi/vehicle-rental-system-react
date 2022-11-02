@@ -1,4 +1,4 @@
-import { CloseOutlined } from "@ant-design/icons";
+import { CloseOutlined, PlusOutlined } from "@ant-design/icons";
 import { Button, Modal, Tag } from "antd";
 import { useState, useEffect } from "react";
 
@@ -62,7 +62,7 @@ const Vehicle = () => {
       title: `Você deseja deletar esse veículo?`,
       async onOk() {
         try {
-          const { data } = await api.delete(`/vehicle/delete?id=${id}`);
+          const { data } = await api.delete(`/vehicle?id=${id}`);
           notification("success", data.message);
         } catch ({ response }) {
           notification("error", response.data.message);
@@ -124,6 +124,16 @@ const Vehicle = () => {
             onClick={(e) => {
               e.stopPropagation();
               confirmDelete(record.id);
+            }}
+          />
+
+          <Button
+            type="primary"
+            className="add-button"
+            shape="circle"
+            icon={<PlusOutlined />}
+            onClick={(e) => {
+              e.stopPropagation();
             }}
           />
         </div>

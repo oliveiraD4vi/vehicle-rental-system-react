@@ -1,5 +1,6 @@
-import { CloseOutlined } from "@ant-design/icons";
+import { CloseOutlined, PlusOutlined } from "@ant-design/icons";
 import { Button, Modal } from "antd";
+import moment from "moment";
 import { useState, useEffect } from "react";
 
 import api from "../../../services/api";
@@ -59,7 +60,7 @@ const User = () => {
       title: `Você deseja deletar esse usuário?`,
       async onOk() {
         try {
-          const { data } = await api.delete(`/user/delete?id=${id}`);
+          const { data } = await api.delete(`/user?id=${id}`);
           notification("success", data.message);
         } catch ({ response }) {
           notification("error", response.data.message);
@@ -81,13 +82,11 @@ const User = () => {
       title: "Nome",
       dataIndex: "name",
       key: "name",
-      width: "20vw",
     },
     {
       title: "Email",
       dataIndex: "email",
       key: "email",
-      width: "20vw",
     },
     {
       title: "Tipo",
@@ -95,8 +94,12 @@ const User = () => {
       dataIndex: "role",
     },
     {
+      title: "Data de Nascimento",
+      key: "bornAt",
+      render: (record) => moment(record.bornAt).format("DD/MM/YY"),
+    },
+    {
       key: "action",
-      width: "5vw",
       render: (record) => (
         <div key={record.id} className="action-column">
           <Button
@@ -107,6 +110,16 @@ const User = () => {
             onClick={(e) => {
               e.stopPropagation();
               confirmDelete(record.id);
+            }}
+          />
+
+          <Button
+            type="primary"
+            className="add-button"
+            shape="circle"
+            icon={<PlusOutlined />}
+            onClick={(e) => {
+              e.stopPropagation();
             }}
           />
         </div>

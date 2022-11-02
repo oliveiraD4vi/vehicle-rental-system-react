@@ -106,6 +106,42 @@ body {
   border: 1px solid var(--hover-primary);
 }
 
+.action-column {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 50% 50%;
+}
+
+.action-column .delete-button {
+  background-color: transparent;
+  border: 1px solid var(--cancel-color);
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.action-column .delete-button .anticon {
+  font-size: 12px;
+  color: var(--cancel-color);
+}
+
+.action-column .add-button {
+  background-color: transparent;
+  border: 1px solid var(--add-color);
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.action-column .add-button .anticon {
+  font-size: 12px;
+  color: var(--add-color);
+}
+
 .ant-form-item {
   margin: 0;
 }

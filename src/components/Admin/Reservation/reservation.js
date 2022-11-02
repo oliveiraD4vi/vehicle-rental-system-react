@@ -1,4 +1,4 @@
-import { CloseOutlined } from "@ant-design/icons";
+import { CloseOutlined, PlusOutlined } from "@ant-design/icons";
 import { Button, Modal } from "antd";
 import { useState, useEffect } from "react";
 
@@ -62,7 +62,7 @@ const Reservation = () => {
       title: `Você deseja deletar essa reserva?`,
       async onOk() {
         try {
-          const { data } = await api.delete(`/reservation/delete?id=${id}`);
+          const { data } = await api.delete(`/reservation?id=${id}`);
           notification("success", data.message);
         } catch ({ response }) {
           notification("error", response.data.message);
@@ -104,7 +104,6 @@ const Reservation = () => {
     },
     {
       key: "action",
-      width: "5vw",
       render: (record) => (
         <div key={record.id} className="action-column">
           <Button
@@ -115,6 +114,16 @@ const Reservation = () => {
             onClick={(e) => {
               e.stopPropagation();
               confirmDelete(record.id);
+            }}
+          />
+
+          <Button
+            type="primary"
+            className="add-button"
+            shape="circle"
+            icon={<PlusOutlined />}
+            onClick={(e) => {
+              e.stopPropagation();
             }}
           />
         </div>
