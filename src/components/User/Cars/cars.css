@@ -71,6 +71,7 @@
   background: transparent;
   border: none;
 }
+
 .cars-container .search-container .search-input span.anticon.anticon-search {
   color: var(--grey-900);
   padding-left: 10px;

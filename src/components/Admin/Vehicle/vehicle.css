@@ -1,3 +1,8 @@
 .vehicles-container {
   width: 100%;
 }
+
+.action-column .delete-button {
+  background-color: var(--cancel-color);
+  border: none;
+}

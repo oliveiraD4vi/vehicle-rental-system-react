@@ -97,7 +97,7 @@ const Cars = () => {
       <div className="search-container">
         <Search
           className="search-input"
-          placeholder="Pesquisar por nome da marca ou modelo"
+          placeholder="Pesquisar por marca ou modelo"
           onSearch={(value) => handleSearch(value)}
           onChange={(value) => handleSearch(value)}
           loading={loading}

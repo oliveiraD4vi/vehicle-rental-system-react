@@ -90,6 +90,22 @@ body {
   color: var(--hover-primary);
 }
 
+.ant-btn-primary:focus,
+.ant-btn-primary {
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.ant-btn-primary:hover {
+  background-color: var(--hover-primary);
+  border: 1px solid var(--hover-primary);
+}
+
+.ant-btn-default:hover {
+  color: var(--hover-primary);
+  border: 1px solid var(--hover-primary);
+}
+
 .ant-form-item {
   margin: 0;
 }
