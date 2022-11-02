@@ -5,7 +5,7 @@ import "./data.css";
 const Data = ({ children }) => {
   return (
     <div className="data-container">
-      <PageHeader title="Data" />
+      <PageHeader title="Dados" />
       {children}
     </div>
   );
