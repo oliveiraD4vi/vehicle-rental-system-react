@@ -1,4 +1,4 @@
-import { Button } from 'antd';
+import { Button } from "antd";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
@@ -8,10 +8,10 @@ const PageHeader = ({ title, goBackHome }) => {
   const navigate = useNavigate();
 
   const handleGoBackButton = () => {
-    if (typeof goBackHome === 'function') {
+    if (typeof goBackHome === "function") {
       goBackHome();
     } else if (goBackHome) {
-      navigate('/home');
+      navigate("/home");
     } else {
       navigate(-1);
     }

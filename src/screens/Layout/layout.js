@@ -11,7 +11,7 @@ import Footer from "../../components/Footer/footer";
 import "./layout.css";
 
 const Layout = ({ children }) => {
-  const location = useLocation();
+  const { pathname } = useLocation();
   const navigate = useNavigate();
 
   const getPathUser = (role) => {
@@ -27,8 +27,6 @@ const Layout = ({ children }) => {
 
   useEffect(() => {
     async function checkUser() {
-      const { pathname } = location;
-
       if (auth.getRole()) {
         let allowedRoutes = getPathUser(auth.getRole());
 
@@ -69,7 +67,13 @@ const Layout = ({ children }) => {
 
   return (
     <ReservationProvider>
-      <div className="layout-container">
+      <div
+        className={`layout-container ${
+          pathname.includes("admin") && !pathname.includes("home")
+            ? "admin"
+            : "user"
+        }`}
+      >
         <Header />
         <main>{children}</main>
         <Footer />

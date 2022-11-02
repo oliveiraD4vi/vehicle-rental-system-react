@@ -90,14 +90,6 @@ body {
   color: var(--hover-primary);
 }
 
-.page-container {
-  min-height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem 5rem;
-}
-
 .ant-form-item {
   margin: 0;
 }
