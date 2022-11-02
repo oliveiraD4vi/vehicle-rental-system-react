@@ -2,6 +2,7 @@ import { CloseOutlined, PlusOutlined } from "@ant-design/icons";
 import { Button, Modal } from "antd";
 import moment from "moment";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import api from "../../../services/api";
 import notification from "../../../services/notification";
@@ -17,6 +18,8 @@ const User = () => {
   const [loading, setLoading] = useState();
 
   const { confirm } = Modal;
+
+  const navigate = useNavigate();
 
   const getDataList = async (page, size, search) => {
     setLoading(true);
@@ -124,6 +127,7 @@ const User = () => {
             icon={<PlusOutlined />}
             onClick={(e) => {
               e.stopPropagation();
+              navigate("/admin/users/data");
             }}
           />
         </div>
@@ -144,8 +148,8 @@ const User = () => {
           loading={loading}
           setLoading={setLoading}
           columns={columns}
+          a
           goPath="/admin/users/data"
-          lastPath="/admin/users"
           searchPlaceholder="Pesquisar por nome, email ou role"
         />
       )}

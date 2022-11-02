@@ -1,6 +1,7 @@
 import { CloseOutlined, PlusOutlined } from "@ant-design/icons";
 import { Button, Modal, Tag } from "antd";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import api from "../../../services/api";
 import notification from "../../../services/notification";
@@ -16,6 +17,8 @@ const Vehicle = () => {
   const [loading, setLoading] = useState();
 
   const { confirm } = Modal;
+
+  const navigate = useNavigate();
 
   const getDataList = async (page, size, search) => {
     setLoading(true);
@@ -134,6 +137,7 @@ const Vehicle = () => {
             icon={<PlusOutlined />}
             onClick={(e) => {
               e.stopPropagation();
+              navigate("/admin/vehicles/data");
             }}
           />
         </div>
@@ -155,7 +159,6 @@ const Vehicle = () => {
           setLoading={setLoading}
           columns={columns}
           goPath="/admin/vehicles/data"
-          lastPath="/admin/vehicles"
           searchPlaceholder="Pesquisar por marca ou modelo"
         />
       )}

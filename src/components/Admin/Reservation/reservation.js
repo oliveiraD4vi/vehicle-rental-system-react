@@ -1,6 +1,7 @@
 import { CloseOutlined, PlusOutlined } from "@ant-design/icons";
 import { Button, Modal } from "antd";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import api from "../../../services/api";
 import notification from "../../../services/notification";
@@ -16,6 +17,8 @@ const Reservation = () => {
   const [loading, setLoading] = useState();
 
   const { confirm } = Modal;
+
+  const navigate = useNavigate();
 
   const getDataList = async (page, size, search) => {
     setLoading(true);
@@ -124,6 +127,7 @@ const Reservation = () => {
             icon={<PlusOutlined />}
             onClick={(e) => {
               e.stopPropagation();
+              navigate("/admin/reservations/data");
             }}
           />
         </div>
@@ -145,7 +149,6 @@ const Reservation = () => {
           setLoading={setLoading}
           columns={columns}
           goPath="/admin/reservations/data"
-          lastPath="/admin/reservations"
           searchPlaceholder="Pesquisar por id do usuário ou do veículo"
         />
       )}

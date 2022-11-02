@@ -19,7 +19,6 @@ const Table = ({
   setLoading,
   columns,
   goPath,
-  lastPath,
   searchPlaceholder,
 }) => {
   const customizeRenderEmpty = () => (
@@ -32,7 +31,6 @@ const Table = ({
   const selectRow = (record) => {
     navigate(goPath, {
       state: {
-        lastPath,
         data: record,
       },
     });
@@ -85,11 +83,6 @@ const Table = ({
             pagination={false}
             loading={loading}
             onChange={handleTableChange}
-            locale={{
-              triggerDesc: "Click para ordenação descendente",
-              triggerAsc: "Click para ordenação ascendente",
-              cancelSort: "Click para cancelar ordenação",
-            }}
             onRow={
               selectRow
                 ? (record) => ({
