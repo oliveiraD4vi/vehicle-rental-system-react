@@ -33,7 +33,7 @@ const Login = () => {
         const { data } = response;
         auth.login(data.authData);
 
-        navigate("/", {
+        navigate(auth.getRole() === "CLIENT" ? "/" : "/admin/home", {
           state: location.state,
         });
       } catch (error) {

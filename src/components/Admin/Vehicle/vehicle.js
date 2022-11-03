@@ -133,7 +133,7 @@ const Vehicle = () => {
 
   return (
     <div className="vehicles-container">
-      <PageHeader title="Veículos" />
+      <PageHeader goBackHome title="Veículos" />
       {dataList && (
         <Table
           dataList={dataList}

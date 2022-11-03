@@ -11,7 +11,7 @@ const PageHeader = ({ title, goBackHome }) => {
     if (typeof goBackHome === "function") {
       goBackHome();
     } else if (goBackHome) {
-      navigate("/home");
+      navigate("/admin/home");
     } else {
       navigate(-1);
     }
