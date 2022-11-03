@@ -57,6 +57,11 @@ const Login = () => {
       <Form form={form} className="login-form" onFinish={onSubmit}>
         <Form.Item
           name="email"
+          label={
+            <>
+              <span className="label-name"> Email </span>
+            </>
+          }
           rules={[
             {
               required: true,
@@ -69,6 +74,11 @@ const Login = () => {
 
         <Form.Item
           name="password"
+          label={
+            <>
+              <span className="label-name"> Senha </span>
+            </>
+          }
           rules={[
             {
               required: true,

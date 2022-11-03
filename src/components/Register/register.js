@@ -52,6 +52,11 @@ const Register = () => {
       <Form form={form} className="register-form" onFinish={onSubmit}>
         <Form.Item
           name="name"
+          label={
+            <>
+              <span className="label-name"> Nome </span>
+            </>
+          }
           rules={[
             {
               required: true,
@@ -72,6 +77,11 @@ const Register = () => {
 
         <Form.Item
           name="email"
+          label={
+            <>
+              <span className="label-name"> Email </span>
+            </>
+          }
           rules={[
             {
               required: true,
@@ -84,6 +94,11 @@ const Register = () => {
 
         <Form.Item
           name="cpf"
+          label={
+            <>
+              <span className="label-name"> CPF </span>
+            </>
+          }
           rules={[
             {
               required: true,
@@ -104,6 +119,11 @@ const Register = () => {
 
         <Form.Item
           name="password"
+          label={
+            <>
+              <span className="label-name"> Senha </span>
+            </>
+          }
           rules={[
             {
               required: true,
@@ -120,6 +140,11 @@ const Register = () => {
 
         <Form.Item
           name="bornAt"
+          label={
+            <>
+              <span className="label-name"> Data de Nascimento </span>
+            </>
+          }
           rules={[
             {
               required: true,

@@ -35,7 +35,11 @@ const Data = () => {
     setDisabled(true);
 
     try {
-      await api.post("/vehicle/register", data);
+      if (insert) {
+        await api.put("/vehicle", { ...data, id: state.data.id });
+      } else {
+        await api.post("/vehicle/register", data);
+      }
 
       navigate("/admin/vehicles/data", {
         state: {
@@ -114,90 +118,119 @@ const Data = () => {
           </div>
         ) : insert ? (
           <Form form={form} className="form-container" onFinish={onSubmit}>
-            <Form.Item
-              name="brand"
-              initialValue={state && state.data ? state.data.brand : null}
-              rules={[
-                {
-                  required: true,
-                  message: "Digite o nome da marca",
-                },
-                {
-                  pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/,
-                  message: "Apenas palavras!",
-                },
-              ]}
-            >
-              <Input disabled={disabled} placeholder="Marca" />
-            </Form.Item>
+            <div className="form-group-2">
+              <Form.Item
+                name="brand"
+                label={
+                  <>
+                    <span className="label-name"> Marca </span>
+                  </>
+                }
+                initialValue={state && state.data ? state.data.brand : null}
+                rules={[
+                  {
+                    required: true,
+                    message: "Digite o nome da marca",
+                  },
+                  {
+                    pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/,
+                    message: "Apenas palavras!",
+                  },
+                ]}
+              >
+                <Input disabled={disabled} placeholder="Marca" />
+              </Form.Item>
 
-            <Form.Item
-              name="model"
-              initialValue={state && state.data ? state.data.model : null}
-              rules={[
-                {
-                  required: true,
-                  message: "Digite o modelo do carro",
-                },
-                {
-                  pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/,
-                  message: "Apenas palavras!",
-                },
-              ]}
-            >
-              <Input disabled={disabled} placeholder="Modelo" />
-            </Form.Item>
+              <Form.Item
+                name="model"
+                label={
+                  <>
+                    <span className="label-name"> Modelo </span>
+                  </>
+                }
+                initialValue={state && state.data ? state.data.model : null}
+                rules={[
+                  {
+                    required: true,
+                    message: "Digite o modelo do carro",
+                  },
+                  {
+                    pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/,
+                    message: "Apenas palavras!",
+                  },
+                ]}
+              >
+                <Input disabled={disabled} placeholder="Modelo" />
+              </Form.Item>
+            </div>
 
-            <Form.Item
-              name="color"
-              initialValue={state && state.data ? state.data.color : null}
-              rules={[
-                {
-                  required: true,
-                  message: "Digite a cor do carro",
-                },
-                {
-                  pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/,
-                  message: "Apenas palavras!",
-                },
-              ]}
-            >
-              <Input disabled={disabled} placeholder="Cor" />
-            </Form.Item>
+            <div className="form-group-3">
+              <Form.Item
+                name="color"
+                label={
+                  <>
+                    <span className="label-name"> Cor </span>
+                  </>
+                }
+                initialValue={state && state.data ? state.data.color : null}
+                rules={[
+                  {
+                    required: true,
+                    message: "Digite a cor do carro",
+                  },
+                  {
+                    pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/,
+                    message: "Apenas palavras!",
+                  },
+                ]}
+              >
+                <Input disabled={disabled} placeholder="Cor" />
+              </Form.Item>
 
-            <Form.Item
-              name="plate"
-              initalValue={state && state.data ? state.data.plate : null}
-              rules={[
-                {
-                  required: true,
-                  message: "Digite a placa do carro",
-                },
-                {
-                  pattern: /^[\d A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+$/,
-                  message: "Apenas palavras e números!",
-                },
-              ]}
-            >
-              <Input disabled={disabled} placeholder="Placa" />
-            </Form.Item>
+              <Form.Item
+                name="plate"
+                label={
+                  <>
+                    <span className="label-name"> Placa </span>
+                  </>
+                }
+                initialValue={state && state.data ? state.data.plate : null}
+                rules={[
+                  {
+                    required: true,
+                    message: "Digite a placa do carro",
+                  },
+                  {
+                    pattern: /^[\d A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+$/,
+                    message: "Apenas palavras e números!",
+                  },
+                ]}
+              >
+                <Input disabled={disabled} placeholder="Placa" />
+              </Form.Item>
 
-            <Form.Item
-              name="value"
-              initialValue={state && state.data ? state.data.value : null}
-              rules={[
-                {
-                  required: true,
-                  message: "Digite a placa do carro",
-                },
-                {
-                  pattern: /^[\d]+$/,
-                  message: "Apenas números!",
-                },
-              ]}
-            >
-              <Input disabled={disabled} placeholder="Diária (R$)" />
-            </Form.Item>
+              <Form.Item
+                name="value"
+                label={
+                  <>
+                    <span className="label-name"> Diária </span>
+                  </>
+                }
+                initialValue={state && state.data ? state.data.value : null}
+                rules={[
+                  {
+                    required: true,
+                    message: "Digite a placa do carro",
+                  },
+                  {
+                    pattern: /^[\d]+$/,
+                    message: "Apenas números!",
+                  },
+                ]}
+              >
+                <Input disabled={disabled} placeholder="Diária (R$)" />
+              </Form.Item>
+            </div>
 
             <Form.Item className="btn">
               <Button
@@ -206,7 +239,7 @@ const Data = () => {
                 htmlType="submit"
                 className="primary-button"
               >
-                CADASTRAR
+                {state && state.data ? "SALVAR" : "CADASTRAR"}
               </Button>
             </Form.Item>
           </Form>
