@@ -2,7 +2,7 @@
   width: 100%;
 }
 
-.card {
+.data-container .card {
   width: 100%;
   display: grid;
   gap: 20px;
@@ -13,16 +13,16 @@
   padding: 20px 30px;
 }
 
-.card > img {
+.data-container .card > img {
   border: 1px solid var(--grey-500);
 }
 
-.card .info {
+.data-container .card .info {
   display: flex;
   flex-direction: column;
 }
 
-.card .info > span {
+.data-container .card .info > span {
   margin: 5px 0;
   display: flex;
   font-size: 18px;
@@ -31,7 +31,7 @@
   color: var(--grey-900);
 }
 
-.card .info > span p {
+.data-container .card .info > span p {
   margin: 0;
   margin-left: 10px;
   color: var(--text-color);

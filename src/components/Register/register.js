@@ -24,7 +24,7 @@ const Register = () => {
     setDisabled(true);
 
     try {
-      await api.post("/user/register", {
+      const { data } = await api.post("/user/register", {
         name,
         email,
         password,
@@ -32,6 +32,7 @@ const Register = () => {
         cpf,
       });
 
+      notification("success", data.message);
       navigate("/login");
     } catch (error) {
       setLoading(false);
