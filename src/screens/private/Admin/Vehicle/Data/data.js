@@ -41,12 +41,10 @@ const Data = () => {
         await api.post("/vehicle/register", data);
       }
 
-      navigate("/admin/vehicles/data", {
-        state: {
-          data,
-          goBack: "/admin/vehicles",
-        },
-      });
+      setLoading(false);
+      setDisabled(false);
+
+      navigate("/admin/vehicles");
     } catch ({ response }) {
       setLoading(false);
       setDisabled(false);
