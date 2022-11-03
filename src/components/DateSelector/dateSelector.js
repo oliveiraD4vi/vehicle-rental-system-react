@@ -3,8 +3,6 @@ import { useContext } from "react";
 import { Form, Button, DatePicker } from "antd";
 import { ReservationContext } from "../../context/ReservationContext";
 
-import moment from "moment";
-
 import "./dateSelector.css";
 
 const DateSelector = ({ data }) => {
@@ -30,6 +28,7 @@ const DateSelector = ({ data }) => {
           <div className="form-date">
             <Form.Item
               name="pickAt"
+              initialValue={data ? data.pickAt : null}
               rules={[
                 {
                   required: true,
@@ -37,15 +36,12 @@ const DateSelector = ({ data }) => {
                 },
               ]}
             >
-              <DatePicker
-                value={data ? moment(data.pickAt) : null}
-                placeholder="Data de retirada"
-                format={dateFormat}
-              />
+              <DatePicker placeholder="Data de retirada" format={dateFormat} />
             </Form.Item>
 
             <Form.Item
               name="returnAt"
+              initialValue={data ? data.returnAt : null}
               rules={[
                 {
                   required: true,
@@ -53,11 +49,7 @@ const DateSelector = ({ data }) => {
                 },
               ]}
             >
-              <DatePicker
-                value={data ? moment(data.returnAt) : null}
-                placeholder="Data de devolução"
-                format={dateFormat}
-              />
+              <DatePicker placeholder="Data de devolução" format={dateFormat} />
             </Form.Item>
           </div>
 

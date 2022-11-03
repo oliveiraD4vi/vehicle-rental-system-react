@@ -63,7 +63,7 @@ const Data = () => {
 
   return (
     <div className="page-container">
-      <DataComponent title={state.data ? "Dados" : "Inserir veículo"}>
+      <DataComponent title={state && state.data ? "Dados" : "Inserir veículo"}>
         {state && (
           <div className="editor-switch">
             <span>EDIÇÃO: </span>
@@ -116,6 +116,7 @@ const Data = () => {
           <Form form={form} className="form-container" onFinish={onSubmit}>
             <Form.Item
               name="brand"
+              initialValue={state && state.data ? state.data.brand : null}
               rules={[
                 {
                   required: true,
@@ -127,15 +128,12 @@ const Data = () => {
                 },
               ]}
             >
-              <Input
-                value={state.data ? state.data.brand : null}
-                disabled={disabled}
-                placeholder="Marca"
-              />
+              <Input disabled={disabled} placeholder="Marca" />
             </Form.Item>
 
             <Form.Item
               name="model"
+              initialValue={state && state.data ? state.data.model : null}
               rules={[
                 {
                   required: true,
@@ -147,15 +145,12 @@ const Data = () => {
                 },
               ]}
             >
-              <Input
-                value={state.data ? state.data.model : null}
-                disabled={disabled}
-                placeholder="Modelo"
-              />
+              <Input disabled={disabled} placeholder="Modelo" />
             </Form.Item>
 
             <Form.Item
               name="color"
+              initialValue={state && state.data ? state.data.color : null}
               rules={[
                 {
                   required: true,
@@ -167,15 +162,12 @@ const Data = () => {
                 },
               ]}
             >
-              <Input
-                value={state.data ? state.data.color : null}
-                disabled={disabled}
-                placeholder="Cor"
-              />
+              <Input disabled={disabled} placeholder="Cor" />
             </Form.Item>
 
             <Form.Item
               name="plate"
+              initalValue={state && state.data ? state.data.plate : null}
               rules={[
                 {
                   required: true,
@@ -187,15 +179,12 @@ const Data = () => {
                 },
               ]}
             >
-              <Input
-                value={state.data ? state.data.plate : null}
-                disabled={disabled}
-                placeholder="Placa"
-              />
+              <Input disabled={disabled} placeholder="Placa" />
             </Form.Item>
 
             <Form.Item
               name="value"
+              initialValue={state && state.data ? state.data.value : null}
               rules={[
                 {
                   required: true,
@@ -207,11 +196,7 @@ const Data = () => {
                 },
               ]}
             >
-              <Input
-                value={state.data ? state.data.value : null}
-                disabled={disabled}
-                placeholder="Diária (R$)"
-              />
+              <Input disabled={disabled} placeholder="Diária (R$)" />
             </Form.Item>
 
             <Form.Item className="btn">
