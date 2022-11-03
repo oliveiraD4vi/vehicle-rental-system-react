@@ -35,7 +35,7 @@ const Data = () => {
     setDisabled(true);
 
     try {
-      if (insert) {
+      if (state && state.data) {
         await api.put("/vehicle", { ...data, id: state.data.id });
       } else {
         await api.post("/vehicle/register", data);
@@ -44,6 +44,7 @@ const Data = () => {
       setLoading(false);
       setDisabled(false);
 
+      notification("success", "Operação realizada com sucesso!");
       navigate("/admin/vehicles");
     } catch ({ response }) {
       setLoading(false);
