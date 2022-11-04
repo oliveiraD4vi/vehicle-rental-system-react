@@ -86,7 +86,9 @@ const Data = () => {
                     <span className="label-name"> Status </span>
                   </>
                 }
-                initialValue={state && state.data ? state.data.status : 'CREATED'}
+                initialValue={
+                  state && state.data ? state.data.status : "CREATED"
+                }
                 rules={[
                   {
                     required: true,
@@ -101,20 +103,20 @@ const Data = () => {
                   optionFilterProp="children"
                   options={[
                     {
-                      value: 'CREATED',
-                      label: 'Reserva criada',
+                      value: "CREATED",
+                      label: "Reserva criada",
                     },
                     {
-                      value: 'CONFIRMED',
-                      label: 'Reserva confirmada',
+                      value: "CONFIRMED",
+                      label: "Reserva confirmada",
                     },
                     {
-                      value: 'PICKUP',
-                      label: 'Veículo retirado',
+                      value: "PICKUP",
+                      label: "Veículo retirado",
                     },
                     {
-                      value: 'FINALIZED',
-                      label: 'Reserva finalizada',
+                      value: "FINALIZED",
+                      label: "Reserva finalizada",
                     },
                   ]}
                 />
@@ -127,11 +129,12 @@ const Data = () => {
                     <span className="label-name"> Passo </span>
                   </>
                 }
-                initialValue={state && state.data ? state.data.step : 'CLIENT'}
+                initialValue={state && state.data ? state.data.step : "CLIENT"}
                 rules={[
                   {
                     required: true,
-                    message: "Escolha o passo em que se encontra o formulário de reserva",
+                    message:
+                      "Escolha o passo em que se encontra o formulário de reserva",
                   },
                 ]}
               >
@@ -142,20 +145,20 @@ const Data = () => {
                   optionFilterProp="children"
                   options={[
                     {
-                      value: 'PERSONAL',
-                      label: 'Dados pessoais',
+                      value: "PERSONAL",
+                      label: "Dados pessoais",
                     },
                     {
-                      value: 'VEHICLE',
-                      label: 'Confirmação do veículo',
+                      value: "VEHICLE",
+                      label: "Confirmação do veículo",
                     },
                     {
-                      value: 'PAYMENT',
-                      label: 'Pagamento',
+                      value: "PAYMENT",
+                      label: "Pagamento",
                     },
                     {
-                      value: 'CONCLUDED',
-                      label: 'Concluído',
+                      value: "CONCLUDED",
+                      label: "Concluído",
                     },
                   ]}
                 />

@@ -158,7 +158,7 @@ const Data = () => {
             >
               <Input disabled={disabled} placeholder="Nome" />
             </Form.Item>
-            
+
             <div className="form-group-3">
               <Form.Item
                 name="email"
@@ -211,7 +211,9 @@ const Data = () => {
                     <span className="label-name"> Data de Nascimento </span>
                   </>
                 }
-                initialValue={state && state.data ? moment(state.data.bornAt) : null}
+                initialValue={
+                  state && state.data ? moment(state.data.bornAt) : null
+                }
                 rules={[
                   {
                     required: true,
@@ -226,7 +228,7 @@ const Data = () => {
                 />
               </Form.Item>
             </div>
-            
+
             <div className="form-group-2">
               <Form.Item
                 name="phone"
@@ -257,7 +259,7 @@ const Data = () => {
                     <span className="label-name"> ROLE </span>
                   </>
                 }
-                initialValue={state && state.data ? state.data.role : 'CLIENT'}
+                initialValue={state && state.data ? state.data.role : "CLIENT"}
                 rules={[
                   {
                     required: true,
@@ -272,12 +274,12 @@ const Data = () => {
                   optionFilterProp="children"
                   options={[
                     {
-                      value: 'CLIENT',
-                      label: 'Cliente',
+                      value: "CLIENT",
+                      label: "Cliente",
                     },
                     {
-                      value: 'ADMIN',
-                      label: 'Administrador',
+                      value: "ADMIN",
+                      label: "Administrador",
                     },
                   ]}
                 />
@@ -323,7 +325,9 @@ const Data = () => {
                     <span className="label-name"> Bairro </span>
                   </>
                 }
-                initialValue={state && state.data ? state.data.neighborhood : null}
+                initialValue={
+                  state && state.data ? state.data.neighborhood : null
+                }
               >
                 <Input disabled={disabled} placeholder="Bairro" />
               </Form.Item>
@@ -384,7 +388,7 @@ const Data = () => {
                 <Input disabled={disabled} placeholder="País" />
               </Form.Item>
             </div>
-            
+
             {!state && (
               <>
                 <h4>Senha:</h4>
