@@ -123,7 +123,7 @@ const User = () => {
 
   return (
     <div className="users-container">
-      <PageHeader title="Usuários" />
+      <PageHeader title="Usuários" goBackHome />
       {dataList && (
         <Table
           dataList={dataList}

@@ -123,7 +123,7 @@ const Reservation = () => {
 
   return (
     <div className="reservations-container">
-      <PageHeader title="Reservas" />
+      <PageHeader title="Reservas" goBackHome />
       {dataList && (
         <Table
           dataList={dataList}

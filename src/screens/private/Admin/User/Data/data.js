@@ -266,6 +266,7 @@ const Data = () => {
                 ]}
               >
                 <Select
+                  disabled={disabled}
                   showSearch
                   placeholder="Role"
                   optionFilterProp="children"
