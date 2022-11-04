@@ -1,4 +1,4 @@
-import { Button, Form, Select, Switch } from "antd";
+import { Button, DatePicker, Form, Input, Select, Switch } from "antd";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -12,7 +12,7 @@ const Data = () => {
   const [insert, setInsert] = useState(false);
   const [reservationData, setReservationData] = useState();
 
-  // const dateFormat = "DD/MM/YYYY";
+  const dateFormat = "DD/MM/YYYY";
   const [form] = Form.useForm();
 
   const { state } = useLocation();
@@ -77,93 +77,205 @@ const Data = () => {
           </div>
         ) : insert ? (
           <Form form={form} className="form-container" onFinish={onSubmit}>
-            <h4>Reserva</h4>
-            <div className="form-group-2">
-              <Form.Item
-                name="status"
-                label={
-                  <>
-                    <span className="label-name"> Status </span>
-                  </>
-                }
-                initialValue={
-                  state && state.data ? state.data.status : "CREATED"
-                }
-                rules={[
-                  {
-                    required: true,
-                    message: "Escolha o STATUS da reserva",
-                  },
-                ]}
-              >
-                <Select
-                  disabled={disabled}
-                  showSearch
-                  placeholder="Status"
-                  optionFilterProp="children"
-                  options={[
+            {!state && (
+              <>
+                <h4>Usuário:</h4>
+                <Form.Item
+                  name="user_id"
+                  label={
+                    <>
+                      <span className="label-name"> ID Usuário </span>
+                    </>
+                  }
+                  rules={[
                     {
-                      value: "CREATED",
-                      label: "Reserva criada",
+                      required: true,
+                      message: "Digite o ID do usuário",
                     },
                     {
-                      value: "CONFIRMED",
-                      label: "Reserva confirmada",
+                      max: 2,
+                      message: "Muito grande",
                     },
                     {
-                      value: "PICKUP",
-                      label: "Veículo retirado",
+                      min: 1,
+                      message: "Muito curto",
                     },
                     {
-                      value: "FINALIZED",
-                      label: "Reserva finalizada",
+                      pattern: /^[\d]+$/,
+                      message: "Apenas números!",
                     },
                   ]}
-                />
-              </Form.Item>
+                >
+                  <Input disabled={disabled} placeholder="ID Usuário" />
+                </Form.Item>
 
-              <Form.Item
-                name="step"
-                label={
-                  <>
-                    <span className="label-name"> Passo </span>
-                  </>
-                }
-                initialValue={state && state.data ? state.data.step : "CLIENT"}
-                rules={[
-                  {
-                    required: true,
-                    message:
-                      "Escolha o passo em que se encontra o formulário de reserva",
-                  },
-                ]}
-              >
-                <Select
-                  disabled={disabled}
-                  showSearch
-                  placeholder="Passo"
-                  optionFilterProp="children"
-                  options={[
+                <h4>Veículo:</h4>
+                <Form.Item
+                  name="vehicle_id"
+                  label={
+                    <>
+                      <span className="label-name"> ID Veículo </span>
+                    </>
+                  }
+                  rules={[
                     {
-                      value: "PERSONAL",
-                      label: "Dados pessoais",
+                      required: true,
+                      message: "Digite o ID do veículo",
                     },
                     {
-                      value: "VEHICLE",
-                      label: "Confirmação do veículo",
+                      max: 2,
+                      message: "Muito grande",
                     },
                     {
-                      value: "PAYMENT",
-                      label: "Pagamento",
+                      min: 1,
+                      message: "Muito curto",
                     },
                     {
-                      value: "CONCLUDED",
-                      label: "Concluído",
+                      pattern: /^[\d]+$/,
+                      message: "Apenas números!",
                     },
                   ]}
-                />
-              </Form.Item>
-            </div>
+                >
+                  <Input disabled={disabled} placeholder="ID Veículo" />
+                </Form.Item>
+              </>
+            )}
+
+            <h4>Reserva:</h4>
+            {!state && (
+              <div className="form-group-2">
+                <Form.Item
+                  name="pickup"
+                  label={
+                    <>
+                      <span className="label-name"> Retirada </span>
+                    </>
+                  }
+                  rules={[
+                    {
+                      required: true,
+                      message: "Insira a data de retirada do veículo",
+                    },
+                  ]}
+                >
+                  <DatePicker
+                    placeholder="Data de retirada"
+                    format={dateFormat}
+                  />
+                </Form.Item>
+
+                <Form.Item
+                  name="devolution"
+                  label={
+                    <>
+                      <span className="label-name"> Devolução </span>
+                    </>
+                  }
+                  rules={[
+                    {
+                      required: true,
+                      message: "Insira a data de devolução do veículo",
+                    },
+                  ]}
+                >
+                  <DatePicker
+                    placeholder="Data de devolução"
+                    format={dateFormat}
+                  />
+                </Form.Item>
+              </div>
+            )}
+
+            {state && (
+              <div className="form-group-2">
+                <Form.Item
+                  name="status"
+                  label={
+                    <>
+                      <span className="label-name"> Status </span>
+                    </>
+                  }
+                  initialValue={
+                    state && state.data ? state.data.status : "CREATED"
+                  }
+                  rules={[
+                    {
+                      required: true,
+                      message: "Escolha o STATUS da reserva",
+                    },
+                  ]}
+                >
+                  <Select
+                    disabled={disabled}
+                    showSearch
+                    placeholder="Status"
+                    optionFilterProp="children"
+                    options={[
+                      {
+                        value: "CREATED",
+                        label: "Reserva criada",
+                      },
+                      {
+                        value: "CONFIRMED",
+                        label: "Reserva confirmada",
+                      },
+                      {
+                        value: "PICKUP",
+                        label: "Veículo retirado",
+                      },
+                      {
+                        value: "FINALIZED",
+                        label: "Reserva finalizada",
+                      },
+                    ]}
+                  />
+                </Form.Item>
+
+                <Form.Item
+                  name="step"
+                  label={
+                    <>
+                      <span className="label-name"> Passo </span>
+                    </>
+                  }
+                  initialValue={
+                    state && state.data ? state.data.step : "PERSONAL"
+                  }
+                  rules={[
+                    {
+                      required: true,
+                      message:
+                        "Escolha o passo em que se encontra o formulário de reserva",
+                    },
+                  ]}
+                >
+                  <Select
+                    disabled={disabled}
+                    showSearch
+                    placeholder="Passo"
+                    optionFilterProp="children"
+                    options={[
+                      {
+                        value: "PERSONAL",
+                        label: "Dados pessoais",
+                      },
+                      {
+                        value: "VEHICLE",
+                        label: "Confirmação do veículo",
+                      },
+                      {
+                        value: "PAYMENT",
+                        label: "Pagamento",
+                      },
+                      {
+                        value: "CONCLUDED",
+                        label: "Concluído",
+                      },
+                    ]}
+                  />
+                </Form.Item>
+              </div>
+            )}
 
             <Form.Item className="btn">
               <Button

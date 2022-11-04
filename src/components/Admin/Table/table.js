@@ -73,6 +73,7 @@ const Table = ({
           onSearch={(value) => handleSearch(value)}
           onChange={(e) => onChangeSearchValue(e)}
           loading={loading}
+          disabled={loading}
         />
 
         <Button

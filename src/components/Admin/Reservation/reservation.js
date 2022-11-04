@@ -1,5 +1,6 @@
 import { CloseOutlined } from "@ant-design/icons";
 import { Button, Modal } from "antd";
+import moment from "moment";
 import { useState, useEffect } from "react";
 
 import api from "../../../services/api";
@@ -12,7 +13,7 @@ import "./reservation.css";
 const Reservation = () => {
   const [disabledPagination, setDisabledPagination] = useState(false);
   const [pagination, setPagination] = useState({});
-  const [dataList, setDataList] = useState(null);
+  const [dataList, setDataList] = useState([]);
   const [loading, setLoading] = useState();
 
   const { confirm } = Modal;
@@ -37,11 +38,8 @@ const Reservation = () => {
 
       if (search) {
         const list = [];
-        data.cars.forEach((item) => {
-          if (
-            item.user_id.toLowerCase() === search ||
-            item.vehicle_id.toLowerCase() === search
-          ) {
+        data.reservations.forEach((item) => {
+          if (item.user_id == search || item.vehicle_id == search) {
             list.push(item);
           }
         });
@@ -81,16 +79,24 @@ const Reservation = () => {
 
   const columns = [
     {
+      title: "Usuário",
+      key: "userid",
+      dataIndex: "user_id",
+    },
+    {
+      title: "Veículo",
+      key: "vehicleid",
+      dataIndex: "vehicle_id",
+    },
+    {
       title: "Retirada",
-      dataIndex: "pickup",
       key: "pickup",
-      width: "20vw",
+      render: (record) => moment(record.pickup).format("DD/MM/YY"),
     },
     {
       title: "Devolução",
-      dataIndex: "devolution",
       key: "devolution",
-      width: "20vw",
+      render: (record) => moment(record.devolution).format("DD/MM/YY"),
     },
     {
       title: "Passo",
@@ -124,20 +130,18 @@ const Reservation = () => {
   return (
     <div className="reservations-container">
       <PageHeader title="Reservas" goBackHome />
-      {dataList && (
-        <Table
-          dataList={dataList}
-          getDataList={getDataList}
-          pagination={pagination}
-          setPagination={setPagination}
-          disabledPagination={disabledPagination}
-          loading={loading}
-          setLoading={setLoading}
-          columns={columns}
-          goPath="/admin/reservations/data"
-          searchPlaceholder="Pesquisar por id do usuário ou do veículo"
-        />
-      )}
+      <Table
+        dataList={dataList}
+        getDataList={getDataList}
+        pagination={pagination}
+        setPagination={setPagination}
+        disabledPagination={disabledPagination}
+        loading={loading}
+        setLoading={setLoading}
+        columns={columns}
+        goPath="/admin/reservations/data"
+        searchPlaceholder="Pesquisar por id do usuário ou do veículo"
+      />
     </div>
   );
 };

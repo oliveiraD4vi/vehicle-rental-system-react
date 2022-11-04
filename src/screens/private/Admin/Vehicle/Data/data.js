@@ -83,10 +83,10 @@ const Data = () => {
 
             <div className="info">
               <span>
-                Marca: <p>{vehicleData.brand}</p>
+                ID: <p>{vehicleData.id}</p>
               </span>
               <span>
-                Modelo: <p>{vehicleData.model}</p>
+                Marca: <p>{vehicleData.brand}</p>
               </span>
             </div>
 
@@ -105,13 +105,16 @@ const Data = () => {
                 </p>
               </span>
               <span>
-                Placa: <p>{vehicleData.plate}</p>
+                Modelo: <p>{vehicleData.model}</p>
               </span>
             </div>
 
             <div className="info">
               <span>
                 Diária: <p>{vehicleData.value}</p>
+              </span>
+              <span>
+                Placa: <p>{vehicleData.plate}</p>
               </span>
             </div>
           </div>

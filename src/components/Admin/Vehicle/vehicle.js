@@ -12,7 +12,7 @@ import "./vehicle.css";
 const Vehicle = () => {
   const [disabledPagination, setDisabledPagination] = useState(false);
   const [pagination, setPagination] = useState({});
-  const [dataList, setDataList] = useState(null);
+  const [dataList, setDataList] = useState([]);
   const [loading, setLoading] = useState();
 
   const { confirm } = Modal;
@@ -134,20 +134,18 @@ const Vehicle = () => {
   return (
     <div className="vehicles-container">
       <PageHeader goBackHome title="Veículos" />
-      {dataList && (
-        <Table
-          dataList={dataList}
-          getDataList={getDataList}
-          pagination={pagination}
-          setPagination={setPagination}
-          disabledPagination={disabledPagination}
-          loading={loading}
-          setLoading={setLoading}
-          columns={columns}
-          goPath="/admin/vehicles/data"
-          searchPlaceholder="Pesquisar por marca ou modelo"
-        />
-      )}
+      <Table
+        dataList={dataList}
+        getDataList={getDataList}
+        pagination={pagination}
+        setPagination={setPagination}
+        disabledPagination={disabledPagination}
+        loading={loading}
+        setLoading={setLoading}
+        columns={columns}
+        goPath="/admin/vehicles/data"
+        searchPlaceholder="Pesquisar por marca ou modelo"
+      />
     </div>
   );
 };

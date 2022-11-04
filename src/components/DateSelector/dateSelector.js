@@ -14,8 +14,8 @@ const DateSelector = ({ data }) => {
   const dateFormat = "DD/MM/YYYY";
 
   const onSubmit = async (data) => {
-    const { pickAt, returnAt } = await data;
-    setReservationData({ pickAt, returnAt });
+    const { pickup, devolution } = await data;
+    setReservationData({ pickup, devolution });
     navigate("/cars");
   };
 
@@ -28,8 +28,8 @@ const DateSelector = ({ data }) => {
         <Form form={form} className="reservation-date-form" onFinish={onSubmit}>
           <div className="form-date">
             <Form.Item
-              name="pickAt"
-              initialValue={data ? data.pickAt : null}
+              name="pickup"
+              initialValue={data ? data.pickup : null}
               rules={[
                 {
                   required: true,
@@ -41,8 +41,8 @@ const DateSelector = ({ data }) => {
             </Form.Item>
 
             <Form.Item
-              name="returnAt"
-              initialValue={data ? data.returnAt : null}
+              name="devolution"
+              initialValue={data ? data.devolution : null}
               rules={[
                 {
                   required: true,

@@ -13,7 +13,7 @@ import "./user.css";
 const User = () => {
   const [disabledPagination, setDisabledPagination] = useState(false);
   const [pagination, setPagination] = useState({});
-  const [dataList, setDataList] = useState(null);
+  const [dataList, setDataList] = useState([]);
   const [loading, setLoading] = useState();
 
   const { confirm } = Modal;
@@ -124,21 +124,19 @@ const User = () => {
   return (
     <div className="users-container">
       <PageHeader title="Usuários" goBackHome />
-      {dataList && (
-        <Table
-          dataList={dataList}
-          getDataList={getDataList}
-          pagination={pagination}
-          setPagination={setPagination}
-          disabledPagination={disabledPagination}
-          loading={loading}
-          setLoading={setLoading}
-          columns={columns}
-          a
-          goPath="/admin/users/data"
-          searchPlaceholder="Pesquisar por nome, email ou role"
-        />
-      )}
+      <Table
+        dataList={dataList}
+        getDataList={getDataList}
+        pagination={pagination}
+        setPagination={setPagination}
+        disabledPagination={disabledPagination}
+        loading={loading}
+        setLoading={setLoading}
+        columns={columns}
+        a
+        goPath="/admin/users/data"
+        searchPlaceholder="Pesquisar por nome, email ou role"
+      />
     </div>
   );
 };

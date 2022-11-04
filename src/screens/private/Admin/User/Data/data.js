@@ -12,6 +12,7 @@ const Data = () => {
   const [disabled, setDisabled] = useState(false);
   const [insert, setInsert] = useState(false);
   const [userData, setUserData] = useState();
+  const [showcaseName, setShowcaseName] = useState();
 
   const dateFormat = "DD/MM/YYYY";
   const [form] = Form.useForm();
@@ -22,6 +23,8 @@ const Data = () => {
   useEffect(() => {
     if (state && state.data) {
       setUserData(state.data);
+      let name = state.data.name.split(" ");
+      setShowcaseName(name[0] + " " + name[name.length - 1]);
     } else {
       setInsert(true);
     }
@@ -74,7 +77,10 @@ const Data = () => {
           <div className="card">
             <div className="info">
               <span>
-                Nome: <p>{userData.name}</p>
+                ID: <p>{userData.id}</p>
+              </span>
+              <span>
+                Nome: <p>{showcaseName}</p>
               </span>
               <span>
                 Email: <p>{userData.email}</p>
