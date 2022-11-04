@@ -1,4 +1,5 @@
 import { Button, DatePicker, Form, Input, Select, Switch } from "antd";
+import moment from "moment";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -69,10 +70,41 @@ const Data = () => {
             <Switch onChange={onChange} />
           </div>
         )}
+
         {reservationData ? (
           <div className="cards-container">
-            <div className="card">reserva</div>
+            <div className="card">
+              <div className="info">
+                <span>
+                  ID: <p>{reservationData.id}</p>
+                </span>
+                <span>
+                  Retirada:{" "}
+                  <p>{moment(reservationData.pickup).format("DD/MM/YY")}</p>
+                </span>
+                <span>
+                  Devolução:{" "}
+                  <p>{moment(reservationData.devolution).format("DD/MM/YY")}</p>
+                </span>
+              </div>
+
+              <div className="info">
+                <span>
+                  Status: <p>{reservationData.status}</p>
+                </span>
+                <span>
+                  Passo: <p>{reservationData.step}</p>
+                </span>
+                {reservationData.total_value && (
+                  <span>
+                    Valor (R$): <p>{reservationData.total_value}</p>
+                  </span>
+                )}
+              </div>
+            </div>
+
             <div className="card">usuário</div>
+
             <div className="card">veículo</div>
           </div>
         ) : insert ? (

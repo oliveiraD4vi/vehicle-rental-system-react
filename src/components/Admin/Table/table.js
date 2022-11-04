@@ -72,7 +72,6 @@ const Table = ({
           placeholder={searchPlaceholder}
           onSearch={(value) => handleSearch(value)}
           onChange={(e) => onChangeSearchValue(e)}
-          loading={loading}
           disabled={loading}
         />
 
@@ -90,29 +89,30 @@ const Table = ({
             className="table"
             dataSource={dataList}
             columns={columns}
-            rowKey={(record) => record.externalId}
+            rowKey={(record) => record.id}
             pagination={false}
             loading={loading}
             onChange={handleTableChange}
             onRow={
-              selectRow
-                ? (record) => ({
-                    onClick: () => selectRow(record),
-                  })
-                : null
+              (record) => ({
+                onClick: () => selectRow(record),
+              })
             }
           />
         </ConfigProvider>
-        <Pagination
-          locale={{ items_per_page: ` /  página` }}
-          showSizeChanger
-          current={pagination.page}
-          defaultPageSize={pagination.size}
-          total={pagination.totalCount}
-          onChange={onChangePagination}
-          disabled={disabledPagination}
-          pageSizeOptions={["5", "10", "20", "30"]}
-        />
+
+        {dataList && (
+          <Pagination
+            locale={{ items_per_page: ` /  página` }}
+            showSizeChanger
+            current={pagination.page}
+            defaultPageSize={pagination.size}
+            total={pagination.totalCount}
+            onChange={onChangePagination}
+            disabled={disabledPagination}
+            pageSizeOptions={["5", "10", "20", "30"]}
+          />
+        )}
       </div>
     </div>
   );
