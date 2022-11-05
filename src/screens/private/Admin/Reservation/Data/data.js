@@ -1,4 +1,12 @@
-import { Button, DatePicker, Form, Input, Select, Switch } from "antd";
+import {
+  Button,
+  Collapse,
+  DatePicker,
+  Form,
+  Input,
+  Select,
+  Switch,
+} from "antd";
 import moment from "moment";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -12,11 +20,16 @@ const Data = () => {
   const [disabled, setDisabled] = useState(false);
   const [insert, setInsert] = useState(false);
   const [reservationData, setReservationData] = useState();
+  const [userData, setUserData] = useState();
+  const [vehicleData, setVehicleData] = useState();
+  const [showcaseName, setShowcaseName] = useState();
 
-  const dateFormat = "DD/MM/YYYY";
   const [form] = Form.useForm();
 
+  const { Panel } = Collapse;
   const { state } = useLocation();
+
+  const dateFormat = "DD/MM/YYYY";
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
@@ -43,9 +56,33 @@ const Data = () => {
     }
   };
 
+  const getUser = async (id) => {
+    try {
+      const { data } = await api.get(`/user?id=${id}`);
+
+      setUserData(data.user);
+      let name = data.user.name.split(" ");
+      setShowcaseName(name[0] + " " + name[name.length - 1]);
+    } catch ({ response }) {
+      notification("error", response.data.message);
+    }
+  };
+
+  const getVehicle = async (id) => {
+    try {
+      const { data } = await api.get(`/vehicle?id=${id}`);
+
+      setVehicleData(data.vehicle);
+    } catch ({ response }) {
+      notification("error", response.data.message);
+    }
+  };
+
   useEffect(() => {
     if (state && state.data) {
       setReservationData(state.data);
+      getUser(state.data.user_id);
+      getVehicle(state.data.vehicle_id);
     } else {
       setInsert(true);
     }
@@ -78,6 +115,14 @@ const Data = () => {
                 <span>
                   ID: <p>{reservationData.id}</p>
                 </span>
+                {reservationData.total_value && (
+                  <span>
+                    Valor (R$): <p>{reservationData.total_value}</p>
+                  </span>
+                )}
+              </div>
+
+              <div className="info">
                 <span>
                   Retirada:{" "}
                   <p>{moment(reservationData.pickup).format("DD/MM/YY")}</p>
@@ -95,17 +140,95 @@ const Data = () => {
                 <span>
                   Passo: <p>{reservationData.step}</p>
                 </span>
-                {reservationData.total_value && (
-                  <span>
-                    Valor (R$): <p>{reservationData.total_value}</p>
-                  </span>
-                )}
               </div>
             </div>
 
-            <div className="card">usuário</div>
+            <Collapse>
+              <Panel header="Dados do usuário" key={userData && userData.id}>
+                <div className="card no-border">
+                  {userData ? (
+                    <>
+                      <div className="info">
+                        <span>
+                          ID: <p>{userData.id}</p>
+                        </span>
+                        <span>
+                          Nome: <p>{showcaseName}</p>
+                        </span>
+                      </div>
 
-            <div className="card">veículo</div>
+                      <div className="info">
+                        <span>
+                          Role: <p>{userData.role}</p>
+                        </span>
+                        <span>
+                          Email: <p>{userData.email}</p>
+                        </span>
+                      </div>
+
+                      <div className="info">
+                        <span>
+                          CPF: <p>{userData.cpf}</p>
+                        </span>
+                        <span>
+                          Nascimento:{" "}
+                          <p>{moment(userData.bornAt).format("DD/MM/YY")}</p>
+                        </span>
+                      </div>
+                    </>
+                  ) : (
+                    <span>Carregando...</span>
+                  )}
+                </div>
+              </Panel>
+
+              <Panel header="Dados do veículo" key={vehicleData && vehicleData.id}>
+                <div className="card no-border">
+                  {vehicleData ? (
+                    <>
+                      <div className="info">
+                        <span>
+                          ID: <p>{vehicleData.id}</p>
+                        </span>
+                        <span>
+                          Marca: <p>{vehicleData.brand}</p>
+                        </span>
+                      </div>
+
+                      <div className="info">
+                        <span>
+                          Cor:{" "}
+                          <p
+                            style={{
+                              color:
+                                vehicleData.color != "White"
+                                  ? vehicleData.color
+                                  : "black",
+                            }}
+                          >
+                            {vehicleData.color}
+                          </p>
+                        </span>
+                        <span>
+                          Modelo: <p>{vehicleData.model}</p>
+                        </span>
+                      </div>
+
+                      <div className="info">
+                        <span>
+                          Diária: <p>{vehicleData.value}</p>
+                        </span>
+                        <span>
+                          Placa: <p>{vehicleData.plate}</p>
+                        </span>
+                      </div>
+                    </>
+                  ) : (
+                    <span>Carregando...</span>
+                  )}
+                </div>
+              </Panel>
+            </Collapse>
           </div>
         ) : insert ? (
           <Form form={form} className="form-container" onFinish={onSubmit}>

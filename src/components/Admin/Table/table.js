@@ -93,11 +93,9 @@ const Table = ({
             pagination={false}
             loading={loading}
             onChange={handleTableChange}
-            onRow={
-              (record) => ({
-                onClick: () => selectRow(record),
-              })
-            }
+            onRow={(record) => ({
+              onClick: () => selectRow(record),
+            })}
           />
         </ConfigProvider>
 
