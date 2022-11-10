@@ -1,0 +1,93 @@
+.cars-container {
+  display: grid;
+  width: 100%;
+  gap: 20px;
+}
+
+.cars-container .ant-pagination-item-link:hover,
+.cars-container .ant-pagination-item:hover,
+.cars-container .ant-pagination-item a:hover,
+.cars-container .ant-pagination-item-active,
+.cars-container .ant-pagination-item-active a {
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.cars-container .pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cars-container .pagination-container span {
+  margin-bottom: 2px;
+}
+
+.cars-container .container-listing .ant-select-selector,
+.cars-container .pagination-container .ant-select-selector {
+  border: none;
+  box-shadow: none !important;
+}
+
+.cars-container .search-container {
+  display: flex;
+  justify-content: center;
+}
+
+.cars-container .search-container .search-input {
+  width: 40%;
+  min-width: 200px;
+}
+
+.cars-container .search-container .search-input input {
+  height: 45px;
+  border-radius: 5px !important;
+}
+
+.cars-container .search-container .search-input input:focus {
+  box-shadow: none;
+}
+
+.cars-container .search-container .search-input input::placeholder {
+  color: var(--grey-900);
+}
+
+.cars-container .search-container .search-input span.ant-input-wrapper.ant-input-group {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.cars-container .search-container .search-input .ant-input-group .ant-input {
+  z-index: 0;
+  width: 100%;
+  margin-bottom: 0;
+  padding-left: 40px;
+  background: var(--grey-300) 0% 0% no-repeat padding-box !important;
+  border: none !important;
+}
+
+.cars-container .search-container .search-input button.ant-btn.ant-btn-icon-only.ant-input-search-button {
+  background: transparent;
+  border: none;
+}
+
+.cars-container .search-container .search-input span.anticon.anticon-search {
+  color: var(--grey-900);
+  padding-left: 10px;
+}
+
+.cars-container .viewer-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cars-container .container-listing {
+  width: 85%;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 25% 25% 25% 25%;
+  gap: 4rem;
+}

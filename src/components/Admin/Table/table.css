@@ -1,0 +1,65 @@
+.table-container .ant-pagination-item-link:hover,
+.table-container .ant-pagination-item:hover,
+.table-container .ant-pagination-item a:hover,
+.table-container .ant-pagination-item-active,
+.table-container .ant-pagination-item-active a {
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.table-container .ant-table-row:hover {
+  cursor: pointer;
+}
+
+.table-container .table-box .table {
+  margin: 20px 0;
+}
+
+.table-container .search-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-container .search-container .search-input {
+  width: 40%;
+  min-width: 200px;
+}
+
+.table-container .search-container .search-input input {
+  height: 45px;
+  border-radius: 5px !important;
+}
+
+.table-container .search-container .search-input input:focus {
+  box-shadow: none;
+}
+
+.table-container .search-container .search-input input::placeholder {
+  color: var(--grey-900);
+}
+
+.table-container .search-container .search-input span.ant-input-wrapper.ant-input-group {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.table-container .search-container .search-input .ant-input-group .ant-input {
+  z-index: 0;
+  width: 100%;
+  margin-bottom: 0;
+  padding-left: 40px;
+  background: var(--grey-300) 0% 0% no-repeat padding-box !important;
+  border: none !important;
+}
+
+.table-container .search-container .search-input button.ant-btn.ant-btn-icon-only.ant-input-search-button {
+  background: transparent;
+  border: none;
+}
+
+.table-container .search-container .search-input span.anticon.anticon-search {
+  color: var(--grey-900);
+  padding-left: 10px;
+}

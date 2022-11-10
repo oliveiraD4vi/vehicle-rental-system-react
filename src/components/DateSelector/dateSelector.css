@@ -1,0 +1,38 @@
+.centered-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selector-container {
+  width: 50%;
+  padding: 60px 70px;
+  background-color: var(--primary-color);
+  box-shadow: var(--box-shadow);
+}
+
+.selector-container h2 {
+  font-size: 32px;
+}
+
+.selector-container h2 > span {
+  color: var(--white-900);
+}
+
+.selector-container .reservation-date-form {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.selector-container .reservation-date-form > .form-date {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 10px;
+}
+
+.selector-container .reservation-date-form .secondary-button {
+  margin-left: 25px;
+}

@@ -1,0 +1,115 @@
+.home-container {
+  width: 100%;
+}
+
+.home-container .date-selector-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 15px 0 50px;
+}
+
+.home-container .carrousel-container {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.home-container .carrousel-container .vehicle-container {
+  margin-bottom: 50px;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-container .carrousel-container .vehicle-container > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-container .carrousel-container .vehicle-container > div img {
+  width: 400px;
+}
+
+.home-container .carrousel-container .vehicle-container > h3 {
+  font-weight: bold;
+  text-align: center;
+  margin: 0 !important;
+}
+
+.home-container .carrousel-container .ant-carousel .slick-dots {
+  margin: 0;
+}
+
+.home-container .carrousel-container .ant-carousel .slick-dots li button:focus,
+.home-container .carrousel-container .ant-carousel .slick-dots li button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  opacity: 0.3;
+}
+
+.home-container .carrousel-container .ant-carousel .slick-dots li.slick-active {
+  width: 16px;
+}
+
+.home-container .carrousel-container .ant-carousel .slick-dots li.slick-active button {
+  opacity: 1;
+}
+
+.home-container .cards-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+}
+
+.home-container .cards-container .cards {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 15% 15% 15% 15%;
+  gap: 20px;
+}
+
+.home-container .cards-container .cards .card .ant-card-body {
+  box-shadow: var(--box-shadow);
+}
+
+.home-container .cards-container .cards .card,
+.home-container .cards-container .cards .card .ant-card-body {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 100%;
+  min-width: 260px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-container .cards-container .cards .card .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px 0 0 0;
+}
+
+.home-container .cards-container .cards .card .card-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 10%;
+  z-index: 2;
+}
+
+.home-container .cards-container .cards .card .card-icon span {
+  font-size: 32px;
+}

@@ -1,0 +1,37 @@
+.header-container {
+  padding: 2rem 5rem;
+  box-shadow: var(--box-shadow);
+  background-color: var(--white-900);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 10vh;
+}
+
+.navigation-container {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+}
+
+.navigation-container .navigation-item .navigation-btn {
+  border: none;
+  color: var(--text-color);
+}
+
+.navigation-container .navigation-item .navigation-btn.checked {
+  border: none;
+  color: var(--primary-color);
+}
+
+.navigation-container .navigation-item .navigation-btn:disabled {
+  background-color: transparent;
+  color: var(--grey-500) !important;
+}
+
+.navigation-container .navigation-item .navigation-btn:focus,
+.navigation-container .navigation-item .navigation-btn:hover {
+  border: none;
+  color: var(--hover-primary);
+}

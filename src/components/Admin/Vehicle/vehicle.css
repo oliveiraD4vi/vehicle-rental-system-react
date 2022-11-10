@@ -1,0 +1,13 @@
+.vehicles-container {
+  width: 100%;
+}
+
+.vehicles-container .label {
+  text-align: center;
+  min-width: 60px;
+}
+
+.vehicles-container .white {
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+}
